@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using JamesAlcaraz.NlayeredAppDemo.Web.Models;
+using JamesAlcaraz.NlayeredAppDemo.EntityFramework;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
 {

@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using JamesAlcaraz.NlayeredAppDemo.Web.Models;
+using JamesAlcaraz.NlayeredAppDemo.EntityFramework;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Web
 {

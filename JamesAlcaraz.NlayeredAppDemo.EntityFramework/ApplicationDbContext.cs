@@ -1,10 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace JamesAlcaraz.NlayeredAppDemo.Web.Models
+namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -18,7 +19,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IDbContext
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -29,5 +30,26 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Models
         {
             return new ApplicationDbContext();
         }
+        #region IEntitiesContext
+        public void SetAsAdded<TEntity>(TEntity entity) where TEntity : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetAsDeleted<TEntity>(TEntity entity) where TEntity : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetAsModified<TEntity>(TEntity entity) where TEntity : class
+        {
+            throw new NotImplementedException();
+        }
+
+        IDbSet<TEntity> IDbContext.Set<TEntity>()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }
