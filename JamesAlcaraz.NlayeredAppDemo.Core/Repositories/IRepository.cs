@@ -17,11 +17,12 @@ namespace JamesAlcaraz.NlayeredAppDemo.Core.Repositories
 
         //Get single
         T Query<T>(Func<IQueryable<TEntity>, T> queryMethod);
-        TEntity Get(TPrimaryKey id);
+        TEntity FindById(TPrimaryKey id);
 
         //Destructive operations
         TEntity Insert(TEntity entity);
-        TEntity Update(TEntity entity);
+        void Update(TEntity entity);
+        void Delete(TEntity entity);
         void Delete(TPrimaryKey id);
     }
 }

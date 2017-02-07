@@ -28,7 +28,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Core.Repositories
             return predicate(GetAll());
         }
 
-        public TEntity Get(TPrimaryKey id)
+        public TEntity FindById(TPrimaryKey id)
         {
             var entity = GetAll().FirstOrDefault(CreateEqualityExpressionForId(id));
             if (entity == null)
@@ -41,7 +41,9 @@ namespace JamesAlcaraz.NlayeredAppDemo.Core.Repositories
 
         public abstract TEntity Insert(TEntity entity);
 
-        public abstract TEntity Update(TEntity entity);
+        public abstract void Update(TEntity entity);
+
+        public abstract void Delete(TEntity entity);
 
         public abstract void Delete(TPrimaryKey id);
 

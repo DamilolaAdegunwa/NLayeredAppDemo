@@ -31,41 +31,15 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
         {
             return new ApplicationDbContext();
         }
-        #region IEntitiesContext
+
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
         {
             return base.Set<TEntity>();
         }
 
-        public void SetAsAdded<TEntity>(TEntity entity) where TEntity : class
+        public new void SaveChanges()
         {
-            DbEntityEntry dbEntityEntry = GetDbEntityEntrySafely(entity);
-            dbEntityEntry.State = EntityState.Added;
-        }
-
-        public void SetAsModified<TEntity>(TEntity entity) where TEntity : class
-        {
-            DbEntityEntry dbEntityEntry = GetDbEntityEntrySafely(entity);
-            dbEntityEntry.State = EntityState.Modified;
-        }
-
-        public void SetAsDeleted<TEntity>(TEntity entity) where TEntity : class
-        {
-            DbEntityEntry dbEntityEntry = GetDbEntityEntrySafely(entity);
-            dbEntityEntry.State = EntityState.Deleted;
-        }
-        #endregion
-
-        private DbEntityEntry GetDbEntityEntrySafely<TEntity>(TEntity entity) where TEntity : class
-        {
-
-            DbEntityEntry dbEntityEntry = base.Entry<TEntity>(entity);
-            if (dbEntityEntry.State == EntityState.Detached)
-            {
-                Set<TEntity>().Attach(entity);
-            }
-
-            return dbEntityEntry;
+            base.SaveChanges();
         }
     }
 }
