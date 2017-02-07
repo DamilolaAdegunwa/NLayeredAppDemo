@@ -32,7 +32,9 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.RepositoryImplementation
 
         public override TEntity Insert(TEntity entity)
         {
-            return _dbSet.Add(entity);
+            var test = _dbSet.Add(entity);
+            _dbContext.SaveChanges();
+            return test;
         }
 
         public override void Delete(TPrimaryKey id)
