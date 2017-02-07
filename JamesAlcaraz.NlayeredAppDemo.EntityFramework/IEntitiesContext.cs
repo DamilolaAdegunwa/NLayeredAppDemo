@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
 {
-    public interface IDbContext : IDisposable
+    public interface IEntitiesContext : IDisposable
     {
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;
         void SetAsAdded<TEntity>(TEntity entity) where TEntity : class;

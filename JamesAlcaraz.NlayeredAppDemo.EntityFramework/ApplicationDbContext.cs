@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -19,7 +20,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IEntitiesContext
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -31,25 +32,40 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
             return new ApplicationDbContext();
         }
         #region IEntitiesContext
-        public void SetAsAdded<TEntity>(TEntity entity) where TEntity : class
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
         {
-            throw new NotImplementedException();
+            return base.Set<TEntity>();
         }
 
-        public void SetAsDeleted<TEntity>(TEntity entity) where TEntity : class
+        public void SetAsAdded<TEntity>(TEntity entity) where TEntity : class
         {
-            throw new NotImplementedException();
+            DbEntityEntry dbEntityEntry = GetDbEntityEntrySafely(entity);
+            dbEntityEntry.State = EntityState.Added;
         }
 
         public void SetAsModified<TEntity>(TEntity entity) where TEntity : class
         {
-            throw new NotImplementedException();
+            DbEntityEntry dbEntityEntry = GetDbEntityEntrySafely(entity);
+            dbEntityEntry.State = EntityState.Modified;
         }
 
-        IDbSet<TEntity> IDbContext.Set<TEntity>()
+        public void SetAsDeleted<TEntity>(TEntity entity) where TEntity : class
         {
-            throw new NotImplementedException();
+            DbEntityEntry dbEntityEntry = GetDbEntityEntrySafely(entity);
+            dbEntityEntry.State = EntityState.Deleted;
         }
         #endregion
+
+        private DbEntityEntry GetDbEntityEntrySafely<TEntity>(TEntity entity) where TEntity : class
+        {
+
+            DbEntityEntry dbEntityEntry = base.Entry<TEntity>(entity);
+            if (dbEntityEntry.State == EntityState.Detached)
+            {
+                Set<TEntity>().Attach(entity);
+            }
+
+            return dbEntityEntry;
+        }
     }
 }

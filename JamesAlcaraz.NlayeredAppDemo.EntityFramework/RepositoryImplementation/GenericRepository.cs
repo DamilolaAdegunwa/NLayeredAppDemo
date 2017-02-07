@@ -11,9 +11,9 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.RepositoryImplementation
     public class GenericRepository<TEntity, TPrimaryKey> : RepositoryBase<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
-        private readonly IDbContext _dbContext;
+        private readonly IEntitiesContext _dbContext;
 
-        public GenericRepository(IDbContext dbContext)
+        public GenericRepository(IEntitiesContext dbContext)
         {
             if (dbContext == null)
                 throw new ArgumentNullException("Db context is null");
@@ -21,20 +21,23 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.RepositoryImplementation
             _dbContext = dbContext;
         }
 
-        public override void Delete(TPrimaryKey id)
-        {
-            throw new NotImplementedException();
-        }
-
         public override IQueryable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<TEntity>();
         }
 
         public override TEntity Insert(TEntity entity)
         {
             throw new NotImplementedException();
         }
+
+        public override void Delete(TPrimaryKey id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        
 
         public override TEntity Update(TEntity entity)
         {
