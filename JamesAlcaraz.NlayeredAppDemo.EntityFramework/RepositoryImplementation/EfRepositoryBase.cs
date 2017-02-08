@@ -32,9 +32,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.RepositoryImplementation
 
         public override TEntity Insert(TEntity entity)
         {
-            var test = _dbSet.Add(entity);
-            _dbContext.SaveChanges();
-            return test;
+            return _dbSet.Add(entity);
         }
 
         public override void Delete(TPrimaryKey id)
@@ -48,17 +46,25 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.RepositoryImplementation
 
         public override void Delete(TEntity entity)
         {
-            if (_dbContext.Entry(entity).State == EntityState.Detached)
-            {
-                _dbSet.Attach(entity);
-            }
-            _dbSet.Remove(entity);
+            var dbEntityEntry = GetDbEntityEntrySafely(entity);
+            dbEntityEntry.State = EntityState.Deleted;
         }
 
         public override void Update(TEntity entity)
         {
-            _dbSet.Attach(entity);
-            _dbContext.Entry(entity).State = EntityState.Modified;
+            var dbEntityEntry = GetDbEntityEntrySafely(entity);
+            dbEntityEntry.State = EntityState.Modified;
+        }
+
+        private DbEntityEntry GetDbEntityEntrySafely(TEntity entity)
+        {
+            var dbEntityEntry = _dbContext.Entry<TEntity>(entity);
+            if (dbEntityEntry.State == EntityState.Detached)
+            {
+                _dbSet.Attach(entity);
+            }
+
+            return dbEntityEntry;
         }
 
     }

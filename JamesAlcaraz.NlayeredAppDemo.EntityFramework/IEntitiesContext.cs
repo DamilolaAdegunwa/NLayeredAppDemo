@@ -11,7 +11,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
     public interface IEntitiesContext : IDisposable
     {
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;
-        DbEntityEntry Entry(object entity);
+        DbEntityEntry Entry<TEntity>(TEntity entity) where TEntity: class;
         int SaveChanges();
     }
 }

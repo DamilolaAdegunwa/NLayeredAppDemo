@@ -51,5 +51,10 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
         {
             base.SaveChanges();
         }
+
+        public new DbEntityEntry Entry<TEntity>(TEntity entity) where TEntity: class
+        {
+            return base.Entry<TEntity>(entity);
+        }
     }
 }

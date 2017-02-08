@@ -18,7 +18,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web
             // it is NOT necessary to register your controllers
             
             // e.g. container.RegisterType<ITestService, TestService>();
-            container.RegisterType<IEntitiesContext, ApplicationDbContext>();
+            container.RegisterType<IEntitiesContext, ApplicationDbContext>(new PerThreadLifetimeManager());
             container.RegisterType<IRepository<Product, int>, EFRepositoryBase<Product, int>>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
