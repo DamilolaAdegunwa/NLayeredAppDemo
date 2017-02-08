@@ -15,12 +15,12 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
     public class ProductsController : Controller
     {
         private readonly IRepository<Product, int> _repository;
-        private readonly IEntitiesContext _entitiesContext;
+        private readonly IApplicationDbContext _applicationDbContext;
 
-        public ProductsController(IRepository<Product, int> repository, IEntitiesContext entitiesContext)
+        public ProductsController(IRepository<Product, int> repository, IApplicationDbContext applicationDbContext)
         {
             _repository = repository;
-            _entitiesContext = entitiesContext;
+            _applicationDbContext = applicationDbContext;
         }
 
         public ActionResult Index()
@@ -54,7 +54,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
             if (ModelState.IsValid)
             {
                 _repository.Insert(product);
-                _entitiesContext.SaveChanges();
+                _applicationDbContext.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -84,7 +84,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
                 Product entity = _repository.FindById(product.Id);
                 entity.Description = product.Description;
                 _repository.Update(entity);
-                _entitiesContext.SaveChanges();
+                _applicationDbContext.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(product);
@@ -110,7 +110,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
         {
             Product product = _repository.FindById(id);
             _repository.Delete(id);
-            _entitiesContext.SaveChanges();
+            _applicationDbContext.SaveChanges();
             return RedirectToAction("Index");
         }
 

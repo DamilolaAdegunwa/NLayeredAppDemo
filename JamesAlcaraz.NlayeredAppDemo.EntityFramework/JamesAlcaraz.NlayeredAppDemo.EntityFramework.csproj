@@ -59,14 +59,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="IEntitiesContext.cs" />
+    <Compile Include="IApplicationDbContext.cs" />
     <Compile Include="Migrations\201702070644184_Init.cs" />
     <Compile Include="Migrations\201702070644184_Init.Designer.cs">
       <DependentUpon>201702070644184_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryImplementation\EfRepositoryBase.cs" />
+    <Compile Include="Repositories\EfRepositoryBase.cs" />
+    <Compile Include="Uow\EFUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -83,6 +84,7 @@
       <DependentUpon>201702070644184_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

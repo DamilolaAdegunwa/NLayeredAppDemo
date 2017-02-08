@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities.Spefications;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories;
 
-namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.RepositoryImplementation
+namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.Repositories
 {
     public class EFRepositoryBase<TEntity, TPrimaryKey> : RepositoryBase<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
-        private readonly IEntitiesContext _dbContext;
+        private readonly IApplicationDbContext _dbContext;
         private readonly IDbSet<TEntity> _dbSet;
 
-        public EFRepositoryBase(IEntitiesContext dbContext)
+        public EFRepositoryBase(IApplicationDbContext dbContext)
         {
             if (dbContext == null)
                 throw new ArgumentNullException("Db context is null");
