@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices;
+using JamesAlcaraz.NlayeredAppDemo.Application.Dto;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories;
 using JamesAlcaraz.NlayeredAppDemo.EntityFramework;
@@ -16,11 +18,13 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
     {
         private readonly IRepository<Product, int> _repository;
         private readonly IApplicationDbContext _applicationDbContext;
+        private readonly IProductAppService _productAppService;
 
-        public ProductsController(IRepository<Product, int> repository, IApplicationDbContext applicationDbContext)
+        public ProductsController(IRepository<Product, int> repository, IApplicationDbContext applicationDbContext, IProductAppService productAppService)
         {
             _repository = repository;
             _applicationDbContext = applicationDbContext;
+            _productAppService = productAppService;
         }
 
         public ActionResult Index()
@@ -49,15 +53,13 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Description")] Product product)
+        public ActionResult Create([Bind(Include = "Description")] ProductInput  product)
         {
             if (ModelState.IsValid)
             {
-                _repository.Insert(product);
-                _applicationDbContext.SaveChanges();
+                _productAppService.CreateProduct(product);
                 return RedirectToAction("Index");
             }
-
             return View(product);
         }
 

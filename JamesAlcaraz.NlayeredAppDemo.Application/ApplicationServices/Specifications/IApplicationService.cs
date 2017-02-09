@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JamesAlcaraz.NlayeredAppDemo.Application
+namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Specifications
 {
-    public class Class1
+    public interface IApplicationService
     {
+
     }
 }

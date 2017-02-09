@@ -1,4 +1,5 @@
 using System.Web.Mvc;
+using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories;
 using JamesAlcaraz.NlayeredAppDemo.Core.Uow;
@@ -20,6 +21,9 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web
             container.RegisterType<IUnitOfWork, EFUnitOfWork>();
 
             container.RegisterType<IRepository<Product, int>, EFRepositoryBase<Product, int>>();
+            container.RegisterType<IRepository<Product>, EFRepositoryBase<Product>>();
+
+            container.RegisterType<IProductAppService, ProductAppService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

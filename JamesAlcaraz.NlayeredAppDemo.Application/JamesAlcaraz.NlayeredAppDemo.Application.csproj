@@ -40,8 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ApplicationServices\ProductAppService.cs" />
+    <Compile Include="ApplicationServices\Specifications\IApplicationService.cs" />
+    <Compile Include="Dto\ProductInput.cs" />
+    <Compile Include="Dto\ProductOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JamesAlcaraz.NlayeredAppDemo.Core\JamesAlcaraz.NlayeredAppDemo.Core.csproj">
+      <Project>{f5a80d49-f98c-42f3-8092-b4385e8db54d}</Project>
+      <Name>JamesAlcaraz.NlayeredAppDemo.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

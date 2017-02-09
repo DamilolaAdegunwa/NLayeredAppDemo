@@ -67,6 +67,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EfRepositoryBase.cs" />
+    <Compile Include="Repositories\EFRepositoryBaseOfEntity.cs" />
     <Compile Include="Uow\EFUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
