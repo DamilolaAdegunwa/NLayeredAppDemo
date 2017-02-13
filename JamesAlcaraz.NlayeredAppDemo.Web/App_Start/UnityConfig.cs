@@ -1,5 +1,6 @@
 using System.Web.Mvc;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices;
+using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories;
 using JamesAlcaraz.NlayeredAppDemo.Core.Uow;
