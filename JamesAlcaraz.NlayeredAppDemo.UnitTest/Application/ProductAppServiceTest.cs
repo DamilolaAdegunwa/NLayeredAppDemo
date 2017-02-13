@@ -16,20 +16,6 @@ namespace JamesAlcaraz.NlayeredAppDemo.UnitTest.Application
     [TestClass]
     public class ProductAppServiceTest
     {
-        private static Mock<IRepository<Product>> CreateProductRepository()
-        {
-            var mockRepo = new Mock<IRepository<Product>>();
-            mockRepo.Setup(x => x.Insert(It.IsAny<Product>())).Returns(new Product());
-            return mockRepo;
-        }
-
-        private static Mock<IUnitOfWork> CreateUnitOfWork()
-        {
-            var mockUow = new Mock<IUnitOfWork>();
-            mockUow.Setup(x => x.Commit()).Returns(1);
-            return mockUow;
-        }
-
         [TestMethod]
         public void Create_ValidParamater_ReturnsNewInstance()
         {
