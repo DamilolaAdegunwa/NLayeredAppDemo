@@ -26,7 +26,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.UnitTest.Application
 
             var productService = new ProductAppService(mockUow.Object, mockRepo.Object);
             
-            var result = productService.CreateProduct(new ProductInput());
+            var result = productService.Create(new ProductCreateInput());
 
             mockRepo.Verify(x => x.Insert(It.IsAny<Product>()));
             mockUow.Verify(x => x.Commit());
@@ -44,7 +44,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.UnitTest.Application
 
             var productService = new ProductAppService(mockUow.Object, mockRepo.Object);
 
-            productService.CreateProduct(null);
+            productService.Create(null);
         }
 
     }

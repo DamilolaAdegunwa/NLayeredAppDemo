@@ -1,22 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Specifications;
 using JamesAlcaraz.NlayeredAppDemo.Application.Dto;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories;
 using JamesAlcaraz.NlayeredAppDemo.Core.Uow;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
+using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
 {
-    public interface IProductAppService : IApplicationService
-    {
-        ProductOutput CreateProduct(ProductInput productInput);
-    }
-
     public class ProductAppService :  IProductAppService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -28,21 +20,66 @@ namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
             _unitOfWork = unitOfWork;
         }
 
-
-        public ProductOutput CreateProduct(ProductInput productInput)
+        public IEnumerable<ProductGridOutput> GetList()
         {
-            if (productInput == null)
+            var output = from p in _producRepository.GetAll()
+                         select new ProductGridOutput
+                         {
+                             Id = p.Id,
+                             Description = p.Description
+                         };
+            return output;
+        }
+
+        public ProductDetailsOutput Get(int id)
+        {
+            Product entity = _producRepository.FindById(id);
+
+            if (entity == null)
+                throw new NullReferenceException("Product not found");
+
+            return new ProductDetailsOutput { Id = entity.Id, Description = entity.Description };
+        }
+
+        public ProductDetailsOutput Create(ProductCreateInput productCreateInput)
+        {
+            if (productCreateInput == null)
                 throw new ArgumentNullException("Product input cannot be null");
             
-            var entity = new Product { Description = productInput.Description };
+            var entity = new Product { Description = productCreateInput.Description };
 
             var output = _producRepository.Insert(entity);
             _unitOfWork.Commit();
 
             if (output != null)
-                return new ProductOutput{ Id = output.Id, Description = output.Description };
+                return new ProductDetailsOutput{ Id = output.Id, Description = output.Description };
             
             return null;
         }
+
+        public void Update(ProductUpdateInput productUpdateInput)
+        {
+            if (productUpdateInput == null)
+                throw new ArgumentNullException("Product input cannot be null");
+
+            var entity = _producRepository.FindById(productUpdateInput.Id);
+
+            entity.Description = productUpdateInput.Description;
+
+            _producRepository.Update(entity);
+            _unitOfWork.Commit();
+        }
+
+        public void Delete(int id)
+        {
+            Product entity = _producRepository.FindById(id);
+
+            if (entity == null)
+                throw new ArgumentNullException("Product not found");
+
+            _producRepository.Delete(entity);
+            _unitOfWork.Commit();
+        }
+
     }
 }

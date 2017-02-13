@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Application.Dto
 {
-    public class ProductInput
+    public class ProductUpdateInput
     {
+        public int Id { get; set; }
         public string Description { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Application.Dto
 {
-    public class ProductOutput
+    public class ProductDetailsOutput
     {
         public int Id { get; set; }
         public string Description { get; set; }

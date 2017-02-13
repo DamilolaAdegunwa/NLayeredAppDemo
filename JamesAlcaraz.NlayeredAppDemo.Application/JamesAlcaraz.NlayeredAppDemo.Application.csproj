@@ -40,10 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationServices\Interfaces\IProductAppService.cs" />
     <Compile Include="ApplicationServices\ProductAppService.cs" />
     <Compile Include="ApplicationServices\Specifications\IApplicationService.cs" />
-    <Compile Include="Dto\ProductInput.cs" />
-    <Compile Include="Dto\ProductOutput.cs" />
+    <Compile Include="Dto\ProductCreateInput.cs" />
+    <Compile Include="Dto\ProductDetailsOutput.cs" />
+    <Compile Include="Dto\ProductGridOutput.cs" />
+    <Compile Include="Dto\ProductUpdateInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

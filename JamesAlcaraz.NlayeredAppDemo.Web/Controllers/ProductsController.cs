@@ -16,33 +16,31 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly IRepository<Product, int> _repository;
-        private readonly IApplicationDbContext _applicationDbContext;
         private readonly IProductAppService _productAppService;
 
-        public ProductsController(IRepository<Product, int> repository, IApplicationDbContext applicationDbContext, IProductAppService productAppService)
+        public ProductsController(IRepository<Product, int> repository, 
+            IApplicationDbContext applicationDbContext, 
+            IProductAppService productAppService)
         {
-            _repository = repository;
-            _applicationDbContext = applicationDbContext;
             _productAppService = productAppService;
         }
 
         public ActionResult Index()
         {
-            return View(_repository.GetAll().ToList());
+            var model = _productAppService.GetList();
+            return View(model);
         }
 
         public ActionResult Details(int? id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = _repository.FindById(id ?? 0);
+
+            var product = _productAppService.Get(id ?? 0);
+            
             if (product == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(product);
         }
 
@@ -53,56 +51,51 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Description")] ProductInput  product)
+        public ActionResult Create([Bind(Include = "Description")] ProductCreateInput  productCreate)
         {
             if (ModelState.IsValid)
             {
-                _productAppService.CreateProduct(product);
+                _productAppService.Create(productCreate);
                 return RedirectToAction("Index");
             }
-            return View(product);
+            return View(productCreate);
         }
 
         public ActionResult Edit(int? id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = _repository.FindById(id ?? 0);
+            
+            var product = _productAppService.Get(id ?? 0);
+            
             if (product == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(product);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Description")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,Description")] ProductUpdateInput product)
         {
             if (ModelState.IsValid)
             {
-                Product entity = _repository.FindById(product.Id);
-                entity.Description = product.Description;
-                _repository.Update(entity);
-                _applicationDbContext.SaveChanges();
+                _productAppService.Update(product);
                 return RedirectToAction("Index");
             }
             return View(product);
         }
 
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = _repository.FindById(id??0);
+            
+            var product = _productAppService.Get(id);
+
             if (product == null)
-            {
                 return HttpNotFound();
-            }
+            
             return View(product);
         }
 
@@ -110,9 +103,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = _repository.FindById(id);
-            _repository.Delete(id);
-            _applicationDbContext.SaveChanges();
+            _productAppService.Delete(id);
             return RedirectToAction("Index");
         }
 
