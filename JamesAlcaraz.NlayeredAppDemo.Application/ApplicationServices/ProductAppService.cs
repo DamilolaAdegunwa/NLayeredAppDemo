@@ -6,6 +6,7 @@ using JamesAlcaraz.NlayeredAppDemo.Core.Repositories;
 using JamesAlcaraz.NlayeredAppDemo.Core.Uow;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
+using JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
 {
@@ -28,6 +29,12 @@ namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
                              Id = p.Id,
                              Description = p.Description
                          };
+            return output;
+        }
+
+        public IEnumerable<ProductGridOutput> GetPagedList(int pageNumber, int pageSize)
+        {
+            var output = GetList().ToPagedList(pageNumber, pageSize);
             return output;
         }
 
@@ -80,6 +87,9 @@ namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
             _producRepository.Delete(entity);
             _unitOfWork.Commit();
         }
+
+
+
 
     }
 }

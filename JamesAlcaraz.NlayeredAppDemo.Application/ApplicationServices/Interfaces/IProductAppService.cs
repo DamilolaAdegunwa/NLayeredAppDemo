@@ -11,6 +11,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interface
     public interface IProductAppService : IApplicationService
     {
         IEnumerable<ProductGridOutput> GetList();
+        IEnumerable<ProductGridOutput> GetPagedList(int pageNumber, int pageSize);
         ProductDetailsOutput Get(int id);
         ProductDetailsOutput Create(ProductCreateInput productCreateInput);
         void Update(ProductUpdateInput productUpdateInput);

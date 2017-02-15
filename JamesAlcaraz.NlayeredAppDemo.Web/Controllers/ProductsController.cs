@@ -25,9 +25,15 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
             _productAppService = productAppService;
         }
 
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var model = _productAppService.GetList();
+        //    return View(model);
+        //}
+
+        public ActionResult Index(int pageNumber, int pageSize)
         {
-            var model = _productAppService.GetList();
+            var model = _productAppService.GetPagedList(pageNumber, pageSize);
             return View(model);
         }
 

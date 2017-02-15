@@ -42,7 +42,10 @@
   <ItemGroup>
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Spefications\IEntity.cs" />
+    <Compile Include="Repositories\PagedList\PagedList.cs" />
+    <Compile Include="Repositories\PagedList\PagedListExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PagedList\IPagedList.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\IRepositoryOfEntity.cs" />
@@ -50,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DomainServices\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
