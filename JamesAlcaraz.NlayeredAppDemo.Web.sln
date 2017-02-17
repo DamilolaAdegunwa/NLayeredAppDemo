@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JamesAlcaraz.NlayeredAppDem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JamesAlcaraz.NlayeredAppDemo.EntityFramework", "JamesAlcaraz.NlayeredAppDemo.EntityFramework\JamesAlcaraz.NlayeredAppDemo.EntityFramework.csproj", "{89F3EBD6-0DE5-45F4-B337-F569FA49EDEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JamesAlcaraz.NlayeredAppDemo.WebApi", "JamesAlcaraz.NlayeredAppDemo.WebApi\JamesAlcaraz.NlayeredAppDemo.WebApi.csproj", "{FB2984CC-A663-434A-8EB4-AB1EDF598033}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{215FC73C-88E4-46E3-8465-6A3EFDA1908F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JamesAlcaraz.NlayeredAppDemo.UnitTest", "JamesAlcaraz.NlayeredAppDemo.UnitTest\JamesAlcaraz.NlayeredAppDemo.UnitTest.csproj", "{09623228-BEBE-4614-98CF-325D3D7B399C}"
@@ -39,10 +37,6 @@ Global
 		{89F3EBD6-0DE5-45F4-B337-F569FA49EDEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89F3EBD6-0DE5-45F4-B337-F569FA49EDEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89F3EBD6-0DE5-45F4-B337-F569FA49EDEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB2984CC-A663-434A-8EB4-AB1EDF598033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB2984CC-A663-434A-8EB4-AB1EDF598033}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB2984CC-A663-434A-8EB4-AB1EDF598033}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB2984CC-A663-434A-8EB4-AB1EDF598033}.Release|Any CPU.Build.0 = Release|Any CPU
 		{09623228-BEBE-4614-98CF-325D3D7B399C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{09623228-BEBE-4614-98CF-325D3D7B399C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09623228-BEBE-4614-98CF-325D3D7B399C}.Release|Any CPU.ActiveCfg = Release|Any CPU

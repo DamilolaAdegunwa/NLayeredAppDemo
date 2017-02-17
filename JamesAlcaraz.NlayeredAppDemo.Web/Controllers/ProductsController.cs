@@ -31,9 +31,9 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.Controllers
         //    return View(model);
         //}
 
-        public ActionResult Index(int pageNumber, int pageSize)
+        public ActionResult Index(int? pageNumber, int? pageSize)
         {
-            var model = _productAppService.GetPagedList(pageNumber, pageSize);
+            var model = _productAppService.GetPagedList(pageNumber ?? 1, pageSize ?? 10);
             return View(model);
         }
 
