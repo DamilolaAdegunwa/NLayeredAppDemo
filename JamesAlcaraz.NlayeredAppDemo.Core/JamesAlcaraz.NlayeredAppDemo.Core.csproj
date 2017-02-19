@@ -45,7 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Spefications\Entity.cs" />
+    <Compile Include="Entities\Spefications\EntityAudited.cs" />
+    <Compile Include="Entities\Spefications\EntityAuditedOfTPrimaryKey.cs" />
+    <Compile Include="Entities\Spefications\EntityOfTPrimaryKey.cs" />
+    <Compile Include="Entities\Spefications\IEntityAudited.cs" />
+    <Compile Include="Entities\Spefications\ICreationAudited.cs" />
     <Compile Include="Entities\Spefications\IEntity.cs" />
+    <Compile Include="Entities\Spefications\IEntityOfTPrimaryKey.cs" />
+    <Compile Include="Entities\Spefications\IModificationAudited.cs" />
     <Compile Include="Repositories\PagedList\PagedList.cs" />
     <Compile Include="Repositories\PagedList\PagedListExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,9 +2,11 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
+using JamesAlcaraz.NlayeredAppDemo.Core.Entities.Spefications;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -55,6 +57,38 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
         public new DbEntityEntry Entry<TEntity>(TEntity entity) where TEntity: class
         {
             return base.Entry<TEntity>(entity);
+        }
+
+        private void AddTimeStamps()
+        {
+            var entities = ChangeTracker.Entries()
+                .Where(x => x.Entity is IEntityAudited && (x.State == EntityState.Added || x.State == EntityState.Modified));
+
+            if (!entities.Any())
+                return;
+
+            var currentUserName = "";
+
+            if (System.Web.HttpContext.Current != null 
+                && System.Web.HttpContext.Current.User != null 
+                && System.Web.HttpContext.Current.User.Identity != null
+                && System.Web.HttpContext.Current.User.Identity.Name != null)
+            {
+                currentUserName = System.Web.HttpContext.Current.User.Identity.Name;
+            }
+
+
+            foreach (var entity in entities)
+            {
+                if (entity.State == EntityState.Added)
+                {
+                    ((IEntityAudited)entity.Entity).DateCreated = DateTime.UtcNow;
+                    ((IEntityAudited)entity.Entity).UserCreated = currentUserName;
+                }
+
+                ((IEntityAudited)entity.Entity).DateModified = DateTime.UtcNow;
+                ((IEntityAudited)entity.Entity).UserModified = currentUserName;
+            }
         }
     }
 }

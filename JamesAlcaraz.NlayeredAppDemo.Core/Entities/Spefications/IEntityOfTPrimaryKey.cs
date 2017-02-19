@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Core.Entities.Spefications
 {
-    /// <summary>
-    /// Entity with int as primary key type
-    /// </summary>
-    public interface IEntity : IEntity<int>
+    public interface IEntity<TPrimaryKey>
     {
-
+        TPrimaryKey Id { get; set; }
     }
 }

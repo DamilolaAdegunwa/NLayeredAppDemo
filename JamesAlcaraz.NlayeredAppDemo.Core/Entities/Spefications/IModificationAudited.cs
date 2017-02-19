@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Core.Entities.Spefications
 {
-    /// <summary>
-    /// Entity with int as primary key type
-    /// </summary>
-    public interface IEntity : IEntity<int>
+    public interface IModificationAudited
     {
-
+        DateTime? DateModified { get; set; }
+        string UserModified { get; set; }
     }
 }
