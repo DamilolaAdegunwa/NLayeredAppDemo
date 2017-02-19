@@ -20,36 +20,53 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.ApiControllers
         }
 
         // GET: api/Products
-        public IEnumerable<ProductGridOutput> Get()
+        public IHttpActionResult Get()
         {
-            return _productAppService.GetPagedList(1, 10);
+            var result = _productAppService.GetPagedList(1, 10);
+            return Ok<IPagedList<ProductGridOutput>>(result);
         }
-        [Route("api/Products/page/{pageNumber}/pageSize/{pageSize}")]
-        public IPagedList<ProductGridOutput> Get(int pageNumber, int pageSize)
+
+        [Route("api/Products/page/{pageNumber:int}/pageSize/{pageSize:int}")]
+        public IHttpActionResult Get(int pageNumber, int pageSize)
         {
-            return _productAppService.GetPagedList(pageNumber, pageSize);
+            var result = _productAppService.GetPagedList(pageNumber, pageSize);
+            return Ok<IPagedList<ProductGridOutput>>(result);
         }
 
         // GET: api/Products/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            var result = _productAppService.Get(id);
+
+            if (result != null)
+                return Ok<ProductDetailsOutput>(result);
+
+            return NotFound();
         }
 
         // POST: api/Products
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post([FromBody]ProductCreateInput model)
         {
-            var test = 0;
+            var newProduct = _productAppService.Create(model);
+            if (newProduct != null)
+                return Created<ProductDetailsOutput>(Request.RequestUri + "/" + newProduct.Id.ToString(), newProduct);
+
+            return Conflict();
         }
 
         // PUT: api/Products/5
-        public void Put(int id, [FromBody]string value)
+        [AcceptVerbs("PUT", "POST")]
+        public IHttpActionResult Put(int id, [FromBody]ProductUpdateInput model)
         {
+            _productAppService.Update(model);
+            return Ok();
         }
 
         // DELETE: api/Products/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            _productAppService.Delete(id);
+            return Ok();
         }
     }
 }
