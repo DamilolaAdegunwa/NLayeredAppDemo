@@ -13,7 +13,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201702070644184_Init"; }
+            get { return "201702191014537_Init"; }
         }
         
         string IMigrationMetadata.Source

@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities.Spefications;
+using JamesAlcaraz.NlayeredAppDemo.EntityFramework.EntityConfig;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -42,6 +43,10 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            //set all date time property to use datetime2
+            modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
+            modelBuilder.Configurations.Add(new ProductEntityConfig());
         }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
@@ -49,9 +54,10 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
             return base.Set<TEntity>();
         }
 
-        public new void SaveChanges()
+        public override int SaveChanges()
         {
-            base.SaveChanges();
+            this.AddAuditStamps();
+            return base.SaveChanges();
         }
 
         public new DbEntityEntry Entry<TEntity>(TEntity entity) where TEntity: class
@@ -65,8 +71,8 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
         private void AddAuditStamps()
         {
             var entities = ChangeTracker.Entries()
-                .Where(x => 
-                    (x.Entity is ICreationAudited || x.Entity is IModificationAudited) 
+                .Where(x =>
+                    (x.Entity is ICreationAudited || x.Entity is IModificationAudited)
                     && (x.State == EntityState.Added || x.State == EntityState.Modified)
                 );
 
@@ -86,13 +92,13 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
 
             foreach (var entity in entities)
             {
-                if (entity is ICreationAudited && entity.State == EntityState.Added)
+                if (entity.Entity is ICreationAudited && entity.State == EntityState.Added)
                 {
                     ((ICreationAudited)entity.Entity).DateCreated = DateTime.UtcNow;
                     ((ICreationAudited)entity.Entity).UserCreated = currentUserName;
                 }
 
-                if (entity is IModificationAudited)
+                if (entity.Entity is IModificationAudited)
                 {
                     ((IModificationAudited)entity.Entity).DateModified = DateTime.UtcNow;
                     ((IModificationAudited)entity.Entity).UserModified = currentUserName;

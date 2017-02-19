@@ -8,11 +8,15 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Product",
+                "Products.Product",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Description = c.String(),
+                        DateCreated = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        UserCreated = c.String(),
+                        DateModified = c.DateTime(precision: 7, storeType: "datetime2"),
+                        UserModified = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -51,7 +55,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.Migrations
                         PhoneNumber = c.String(),
                         PhoneNumberConfirmed = c.Boolean(nullable: false),
                         TwoFactorEnabled = c.Boolean(nullable: false),
-                        LockoutEndDateUtc = c.DateTime(),
+                        LockoutEndDateUtc = c.DateTime(precision: 7, storeType: "datetime2"),
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
@@ -103,7 +107,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Product");
+            DropTable("Products.Product");
         }
     }
 }

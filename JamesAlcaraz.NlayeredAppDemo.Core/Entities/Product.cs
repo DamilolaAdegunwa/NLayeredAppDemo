@@ -7,9 +7,8 @@ using JamesAlcaraz.NlayeredAppDemo.Core.Entities.Spefications;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Core.Entities
 {
-    public class Product: IEntity<int>
+    public class Product: EntityAudited
     {
-        public int Id { get; set; }
         public string Description { get; set; }
     }
 }

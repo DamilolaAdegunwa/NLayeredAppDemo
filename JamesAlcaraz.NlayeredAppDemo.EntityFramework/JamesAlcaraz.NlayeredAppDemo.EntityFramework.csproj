@@ -60,10 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="EntityConfig\ProductEntityConfig.cs" />
     <Compile Include="IApplicationDbContext.cs" />
-    <Compile Include="Migrations\201702070644184_Init.cs" />
-    <Compile Include="Migrations\201702070644184_Init.Designer.cs">
-      <DependentUpon>201702070644184_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201702191014537_Init.cs" />
+    <Compile Include="Migrations\201702191014537_Init.Designer.cs">
+      <DependentUpon>201702191014537_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,12 +83,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702070644184_Init.resx">
-      <DependentUpon>201702070644184_Init.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Repositories\PagedList\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repositories\PagedList\" />
+    <EmbeddedResource Include="Migrations\201702191014537_Init.resx">
+      <DependentUpon>201702191014537_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
