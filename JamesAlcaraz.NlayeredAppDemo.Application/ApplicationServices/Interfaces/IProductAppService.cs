@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces
 {
     public interface IProductAppService : IApplicationService
     {
         IEnumerable<ProductGridOutput> GetList();
-        IEnumerable<ProductGridOutput> GetPagedList(int pageNumber, int pageSize);
+        IPagedList<ProductGridOutput> GetPagedList(int pageNumber, int pageSize);
         ProductDetailsOutput Get(int id);
         ProductDetailsOutput Create(ProductCreateInput productCreateInput);
         void Update(ProductUpdateInput productUpdateInput);

@@ -32,7 +32,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
             return output;
         }
 
-        public IEnumerable<ProductGridOutput> GetPagedList(int pageNumber, int pageSize)
+        public IPagedList<ProductGridOutput> GetPagedList(int pageNumber, int pageSize)
         {
             var output = GetList().ToPagedList(pageNumber, pageSize);
             return output;
