@@ -20,9 +20,9 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.ApiControllers
         }
 
         // GET: api/Products
-        public IEnumerable<string> Get()
+        public IEnumerable<ProductGridOutput> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _productAppService.GetPagedList(1, 10);
         }
         [Route("api/Products/page/{pageNumber}/pageSize/{pageSize}")]
         public IPagedList<ProductGridOutput> Get(int pageNumber, int pageSize)

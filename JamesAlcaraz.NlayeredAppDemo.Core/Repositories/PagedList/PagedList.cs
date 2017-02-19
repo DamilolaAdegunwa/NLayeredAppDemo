@@ -90,5 +90,13 @@ namespace JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList
         {
             get { return Subset[index]; }
         }
+
+        /// <summary>
+        /// Returns subset, mainly for serialization
+        /// </summary>
+        public IEnumerable<T> Items
+        {
+            get { return Subset; }
+        }
     }
 }

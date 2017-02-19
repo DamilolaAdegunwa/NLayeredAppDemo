@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList
 {
+    [JsonObject]
     public interface IPagedList<out T> : IEnumerable<T>
     {
         /// <summary>
@@ -42,6 +44,11 @@ namespace JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList
         bool HasNextPage { get; }
 
         T this[int index] { get; }
+
+        /// <summary>
+        /// Returns subset
+        /// </summary>
+        IEnumerable<T> Items { get; }
 
     }
 }

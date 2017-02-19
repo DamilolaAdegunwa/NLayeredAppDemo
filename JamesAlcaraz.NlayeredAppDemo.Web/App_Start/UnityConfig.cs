@@ -1,3 +1,4 @@
+using System.Web.Http;
 using System.Web.Mvc;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
@@ -32,6 +33,8 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web
             container.RegisterType<ManageController>(new InjectionConstructor());
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
+
         }
     }
 }
