@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Web.App_Start
 {
@@ -10,16 +11,18 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web.App_Start
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-
-            // Web API routes
+            // Allow attribute routing
             config.MapHttpAttributeRoutes();
 
+            // Web API routes
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //Global Exception Handling and Logging
+            config.Services.Replace(typeof(IExceptionHandler), new WebApiExceptionHandler());
 
             // WebAPI when dealing with JSON & JavaScript!
             // Setup json serialization to serialize classes to camel (std. Json format)
