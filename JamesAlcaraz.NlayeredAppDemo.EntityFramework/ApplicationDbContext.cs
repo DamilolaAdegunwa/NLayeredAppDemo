@@ -59,10 +59,16 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
             return base.Entry<TEntity>(entity);
         }
 
-        private void AddTimeStamps()
+        /// <summary>
+        /// Automatically set tracking fields such as date modified and user modifed during DbContext.SaveChanges
+        /// </summary>
+        private void AddAuditStamps()
         {
             var entities = ChangeTracker.Entries()
-                .Where(x => x.Entity is IEntityAudited && (x.State == EntityState.Added || x.State == EntityState.Modified));
+                .Where(x => 
+                    (x.Entity is ICreationAudited || x.Entity is IModificationAudited) 
+                    && (x.State == EntityState.Added || x.State == EntityState.Modified)
+                );
 
             if (!entities.Any())
                 return;
@@ -80,14 +86,18 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
 
             foreach (var entity in entities)
             {
-                if (entity.State == EntityState.Added)
+                if (entity is ICreationAudited && entity.State == EntityState.Added)
                 {
-                    ((IEntityAudited)entity.Entity).DateCreated = DateTime.UtcNow;
-                    ((IEntityAudited)entity.Entity).UserCreated = currentUserName;
+                    ((ICreationAudited)entity.Entity).DateCreated = DateTime.UtcNow;
+                    ((ICreationAudited)entity.Entity).UserCreated = currentUserName;
                 }
 
-                ((IEntityAudited)entity.Entity).DateModified = DateTime.UtcNow;
-                ((IEntityAudited)entity.Entity).UserModified = currentUserName;
+                if (entity is IModificationAudited)
+                {
+                    ((IModificationAudited)entity.Entity).DateModified = DateTime.UtcNow;
+                    ((IModificationAudited)entity.Entity).UserModified = currentUserName;
+                }
+
             }
         }
     }
