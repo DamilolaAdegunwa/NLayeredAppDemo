@@ -21,5 +21,13 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             UnityConfig.RegisterComponents();
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+            Server.ClearError();
+            Response.Redirect("/Error");
+        }
+
     }
 }
