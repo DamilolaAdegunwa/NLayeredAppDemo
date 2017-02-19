@@ -91,10 +91,6 @@
       <Project>{89f3ebd6-0de5-45f4-b337-f569fa49edea}</Project>
       <Name>JamesAlcaraz.NlayeredAppDemo.EntityFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JamesAlcaraz.NlayeredAppDemo.WebApi\JamesAlcaraz.NlayeredAppDemo.WebApi.csproj">
-      <Project>{fb2984cc-a663-434a-8eb4-ab1edf598033}</Project>
-      <Name>JamesAlcaraz.NlayeredAppDemo.WebApi</Name>
-    </ProjectReference>
     <ProjectReference Include="..\JamesAlcaraz.NlayeredAppDemo.Web\JamesAlcaraz.NlayeredAppDemo.Web.csproj">
       <Project>{ff6407da-dca0-4566-a679-53a551767aa3}</Project>
       <Name>JamesAlcaraz.NlayeredAppDemo.Web</Name>
