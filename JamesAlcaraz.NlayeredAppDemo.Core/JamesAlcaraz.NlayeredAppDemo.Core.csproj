@@ -44,7 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\SalesOrder.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\SalesOrderStatus.cs" />
     <Compile Include="Entities\Spefications\Entity.cs" />
     <Compile Include="Entities\Spefications\EntityAudited.cs" />
     <Compile Include="Entities\Spefications\EntityAuditedOfTPrimaryKey.cs" />
@@ -54,6 +57,8 @@
     <Compile Include="Entities\Spefications\IEntity.cs" />
     <Compile Include="Entities\Spefications\IEntityOfTPrimaryKey.cs" />
     <Compile Include="Entities\Spefications\IModificationAudited.cs" />
+    <Compile Include="Entities\SalesOrderProduct.cs" />
+    <Compile Include="Enums\SalesEnum.cs" />
     <Compile Include="Repositories\PagedList\PagedList.cs" />
     <Compile Include="Repositories\PagedList\PagedListExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

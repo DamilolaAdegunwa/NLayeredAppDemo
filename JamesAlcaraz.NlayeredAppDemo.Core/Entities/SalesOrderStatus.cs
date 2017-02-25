@@ -7,11 +7,8 @@ using JamesAlcaraz.NlayeredAppDemo.Core.Entities.Spefications;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Core.Entities
 {
-    public class Product: EntityAudited
+    public class SalesOrderStatus : Entity<short>
     {
         public string Description { get; set; }
-        public decimal UnitPrice { get; set; }
-
-        public virtual ICollection<SalesOrderProduct> Orders { get; set; }
     }
 }

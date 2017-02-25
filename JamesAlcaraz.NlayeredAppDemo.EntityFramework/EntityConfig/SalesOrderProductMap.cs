@@ -8,11 +8,13 @@ using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 
 namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework.EntityConfig
 {
-    public class ProductEntityConfig : EntityTypeConfiguration<Product>
+    public class SalesOrderProductMap : EntityTypeConfiguration<SalesOrderProduct>
     {
-        public ProductEntityConfig()
+        public SalesOrderProductMap()
         {
-            this.ToTable("Product", "Products");
+            this.ToTable("SalesOrderProduct", "Sales");
+
+            //Primary key and joins already set using conventions
         }
     }
 }

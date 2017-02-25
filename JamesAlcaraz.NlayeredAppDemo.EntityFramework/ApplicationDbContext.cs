@@ -38,15 +38,27 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<SalesOrder> SalesOrders { get; set; }
+        public DbSet<SalesOrderProduct> SalesOrderProduct { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<SalesOrderStatus> SalesOrderStatus { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            //set all date time property to use datetime2
+            //Global settings
             modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
-            modelBuilder.Configurations.Add(new ProductEntityConfig());
+            modelBuilder.Properties<decimal>().Configure(c => c.HasPrecision(16, 3));
+
+            //Per Entity settings
+            modelBuilder.Configurations.Add(new ProductMap());
+            modelBuilder.Configurations.Add(new SalesOrderMap());
+            modelBuilder.Configurations.Add(new SalesOrderProductMap());
+            modelBuilder.Configurations.Add(new CustomerMap());
+            modelBuilder.Configurations.Add(new SalesOrderStatusMap());
+
         }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class

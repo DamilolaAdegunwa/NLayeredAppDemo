@@ -60,11 +60,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="EntityConfig\ProductEntityConfig.cs" />
+    <Compile Include="EntityConfig\SalesOrderStatus.cs" />
+    <Compile Include="EntityConfig\CustomerMap.cs" />
+    <Compile Include="EntityConfig\ProductMap.cs" />
+    <Compile Include="EntityConfig\SalesOrderProductMap.cs" />
+    <Compile Include="EntityConfig\SalesOrderMap.cs" />
     <Compile Include="IApplicationDbContext.cs" />
     <Compile Include="Migrations\201702191014537_Init.cs" />
     <Compile Include="Migrations\201702191014537_Init.Designer.cs">
       <DependentUpon>201702191014537_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702251639104_Update_001.cs" />
+    <Compile Include="Migrations\201702251639104_Update_001.Designer.cs">
+      <DependentUpon>201702251639104_Update_001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702251644509_Update_002.cs" />
+    <Compile Include="Migrations\201702251644509_Update_002.Designer.cs">
+      <DependentUpon>201702251644509_Update_002.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,6 +100,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702191014537_Init.resx">
       <DependentUpon>201702191014537_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702251639104_Update_001.resx">
+      <DependentUpon>201702251639104_Update_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702251644509_Update_002.resx">
+      <DependentUpon>201702251644509_Update_002.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
