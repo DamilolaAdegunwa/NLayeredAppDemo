@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices;
 using JamesAlcaraz.NlayeredAppDemo.Application.Dto;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
@@ -23,8 +24,9 @@ namespace JamesAlcaraz.NlayeredAppDemo.UnitTest.Application
             mockRepo.Setup(x => x.Insert(It.IsAny<Product>())).Returns(new Product());
             var mockUow = new Mock<IUnitOfWork>();
             mockUow.Setup(x => x.Commit()).Returns(1);
-
-            var productService = new ProductAppService(mockUow.Object, mockRepo.Object);
+            var mockMapper = new Mock<IMapper>();
+            mockMapper.Setup(x => x.Map<Product, ProductDetailsOutput>(It.IsAny<Product>())).Returns(new ProductDetailsOutput());
+            var productService = new ProductAppService(mockUow.Object, mockRepo.Object, mockMapper.Object);
             
             var result = productService.Create(new ProductCreateInput());
 
@@ -41,8 +43,10 @@ namespace JamesAlcaraz.NlayeredAppDemo.UnitTest.Application
             mockRepo.Setup(x => x.Insert(It.IsAny<Product>())).Returns(new Product());
             var mockUow = new Mock<IUnitOfWork>();
             mockUow.Setup(x => x.Commit()).Returns(1);
+            var mockMapper = new Mock<IMapper>();
+            mockMapper.Setup(x => x.Map<Product, ProductDetailsOutput>(It.IsAny<Product>())).Returns(new ProductDetailsOutput());
 
-            var productService = new ProductAppService(mockUow.Object, mockRepo.Object);
+            var productService = new ProductAppService(mockUow.Object, mockRepo.Object, mockMapper.Object);
 
             productService.Create(null);
         }

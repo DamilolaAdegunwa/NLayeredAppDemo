@@ -7,6 +7,7 @@ using JamesAlcaraz.NlayeredAppDemo.Core.Uow;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList;
+using AutoMapper;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
 {
@@ -14,11 +15,15 @@ namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRepository<Product> _producRepository;
+        private readonly IMapper _mapper;
 
-        public ProductAppService(IUnitOfWork unitOfWork, IRepository<Product> producRepository)
+        public ProductAppService(IUnitOfWork unitOfWork, 
+            IRepository<Product> producRepository,
+            IMapper mapper)
         {
             _producRepository = producRepository;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public IEnumerable<ProductGridOutput> GetList()
@@ -45,7 +50,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
             if (entity == null)
                 throw new NullReferenceException("Product not found");
 
-            return new ProductDetailsOutput { Id = entity.Id, Description = entity.Description };
+            return _mapper.Map<Product, ProductDetailsOutput>(entity);
         }
 
         public ProductDetailsOutput Create(ProductCreateInput productCreateInput)
@@ -59,7 +64,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
             _unitOfWork.Commit();
 
             if (output != null)
-                return new ProductDetailsOutput{ Id = output.Id, Description = output.Description };
+                return _mapper.Map<Product, ProductDetailsOutput>(entity);
             
             return null;
         }
