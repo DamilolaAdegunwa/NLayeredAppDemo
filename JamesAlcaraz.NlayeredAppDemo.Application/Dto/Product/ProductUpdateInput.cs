@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JamesAlcaraz.NlayeredAppDemo.Application.Dto
+namespace JamesAlcaraz.NlayeredAppDemo.Application.Dto.Products
 {
-    public class ProductDetailsOutput
+    public class ProductUpdateInput
     {
         public int Id { get; set; }
         public string Description { get; set; }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList;
+using JamesAlcaraz.NlayeredAppDemo.Application.Dto.Products;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces
 {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices;
-using JamesAlcaraz.NlayeredAppDemo.Application.Dto;
+using JamesAlcaraz.NlayeredAppDemo.Application.Dto.Products;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories;
 using JamesAlcaraz.NlayeredAppDemo.Core.Uow;

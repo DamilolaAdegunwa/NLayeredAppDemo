@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
 using JamesAlcaraz.NlayeredAppDemo.Application.Dto;
+using JamesAlcaraz.NlayeredAppDemo.Application.Dto.Products;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories;
 using JamesAlcaraz.NlayeredAppDemo.EntityFramework;

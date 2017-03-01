@@ -5,6 +5,7 @@ using System.Web;
 using AutoMapper;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Application.Dto;
+using JamesAlcaraz.NlayeredAppDemo.Application.Dto.Products;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Web.App_Start
 {
