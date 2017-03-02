@@ -8,7 +8,7 @@ using System.Web.Http;
 using Autofac.Integration.WebApi;
 using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices.Authentication;
 using JamesAlcaraz.NlayeredAppDemo.WebApi.Models;
-using JamesAlcaraz.NlayeredAppDemo.WebApi.Repository;
+using JamesAlcaraz.NlayeredAppDemo.WebApi.Services;
 using Microsoft.AspNet.Identity;
 
 namespace JamesAlcaraz.NlayeredAppDemo.WebApi.Controllers

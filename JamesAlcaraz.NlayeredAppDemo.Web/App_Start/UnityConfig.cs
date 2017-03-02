@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
+using JamesAlcaraz.NlayeredAppDemo.Application.Mappings;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories;
 using JamesAlcaraz.NlayeredAppDemo.Core.Uow;

@@ -10,7 +10,7 @@ using Autofac.Integration.WebApi;
 using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices.Authentication;
 using JamesAlcaraz.NlayeredAppDemo.EntityFramework;
 using JamesAlcaraz.NlayeredAppDemo.WebApi.App_Start;
-using JamesAlcaraz.NlayeredAppDemo.WebApi.Repository;
+using JamesAlcaraz.NlayeredAppDemo.WebApi.Services;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -45,12 +45,11 @@ namespace JamesAlcaraz.NlayeredAppDemo.WebApi
             app.UseAutofacMiddleware(container);
             app.UseAutofacWebApi(config);
 
+            ConfigureOAuth(app);
             app.UseWebApi(config);
 
-            ConfigureOAuth(app, container);
-
         }
-        private void ConfigureOAuth(IAppBuilder app, IContainer container)
+        private void ConfigureOAuth(IAppBuilder app)
         {
             OAuthAuthorizationServerOptions oAuthServerOptions = new OAuthAuthorizationServerOptions()
             {

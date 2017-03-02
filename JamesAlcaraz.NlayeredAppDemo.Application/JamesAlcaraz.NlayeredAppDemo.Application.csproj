@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationServices\Interfaces\IProductAppService.cs" />
+    <Compile Include="ApplicationServices\ProductAppCrudService.cs" />
     <Compile Include="ApplicationServices\ProductAppService.cs" />
     <Compile Include="ApplicationServices\Specifications\CrudServiceBase.cs" />
     <Compile Include="ApplicationServices\Specifications\CrudServiceBaseOfTPrimaryKey.cs" />
@@ -57,11 +58,12 @@
     <Compile Include="Dto\Product\ProductDetailsOutput.cs" />
     <Compile Include="Dto\Product\ProductGridOutput.cs" />
     <Compile Include="Dto\Product\ProductUpdateInput.cs" />
-
     <Compile Include="InfrastructureServices\Authentication\SignInOutput.cs" />
     <Compile Include="InfrastructureServices\Authentication\UserRegistrationInput.cs" />
     <Compile Include="InfrastructureServices\Authentication\UserRegistrationOutput.cs" />
     <Compile Include="InfrastructureServices\Authentication\IAuthenticationService.cs" />
+    <Compile Include="Mappings\AutoMapperConfig.cs" />
+    <Compile Include="Mappings\ProductProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

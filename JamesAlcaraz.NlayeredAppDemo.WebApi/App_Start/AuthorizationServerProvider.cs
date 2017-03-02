@@ -8,7 +8,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.Owin;
 using Autofac.Integration.WebApi;
-using JamesAlcaraz.NlayeredAppDemo.WebApi.Repository;
+using JamesAlcaraz.NlayeredAppDemo.WebApi.Services;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
 using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices.Authentication;

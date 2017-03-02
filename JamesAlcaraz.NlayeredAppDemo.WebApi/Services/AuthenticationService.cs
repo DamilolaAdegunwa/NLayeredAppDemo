@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices.Authentication;
 using JamesAlcaraz.NlayeredAppDemo.WebApi.App_Start;
 
-namespace JamesAlcaraz.NlayeredAppDemo.WebApi.Repository
+namespace JamesAlcaraz.NlayeredAppDemo.WebApi.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
