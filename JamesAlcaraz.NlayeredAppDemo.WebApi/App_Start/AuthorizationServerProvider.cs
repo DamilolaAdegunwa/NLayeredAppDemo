@@ -4,13 +4,19 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http;
+using Autofac;
+using Autofac.Integration.Owin;
+using Autofac.Integration.WebApi;
 using JamesAlcaraz.NlayeredAppDemo.WebApi.Repository;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
+using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices.Authentication;
+
 
 namespace JamesAlcaraz.NlayeredAppDemo.WebApi.App_Start
 {
-    public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
+    public class AuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
@@ -19,18 +25,17 @@ namespace JamesAlcaraz.NlayeredAppDemo.WebApi.App_Start
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+            var autofacLifetimeScope = OwinContextExtensions.GetAutofacLifetimeScope(context.OwinContext);
+            var auth = autofacLifetimeScope.Resolve<IAuthenticationService>();
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (AuthRepository _repo = new AuthRepository())
-            {
-                IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
+            var user = await auth.SignIn(context.UserName, context.Password);
 
-                if (user == null)
-                {
-                    context.SetError("invalid_grant", "The user name or password is incorrect.");
-                    return;
-                }
+            if (user == null)
+            {
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;  
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);

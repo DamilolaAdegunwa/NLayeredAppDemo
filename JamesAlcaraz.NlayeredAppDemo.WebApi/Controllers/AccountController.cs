@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Autofac.Integration.WebApi;
+using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices.Authentication;
 using JamesAlcaraz.NlayeredAppDemo.WebApi.Models;
 using JamesAlcaraz.NlayeredAppDemo.WebApi.Repository;
 using Microsoft.AspNet.Identity;
@@ -14,24 +16,27 @@ namespace JamesAlcaraz.NlayeredAppDemo.WebApi.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        private AuthRepository _repo = null;
+        private readonly IAuthenticationService _authenticationService;
 
         public AccountController()
         {
-            _repo = new AuthRepository();
+            
+        }
+        public AccountController(IAuthenticationService authService)
+        {
+            _authenticationService = authService;
         }
 
-        // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(UserModel userModel)
+        public async Task<IHttpActionResult> Register(UserRegistrationInput userModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await _repo.RegisterUser(userModel);
+            UserRegistrationResult result = await _authenticationService.RegisterUser(userModel);
 
             IHttpActionResult errorResult = GetErrorResult(result);
 
@@ -40,25 +45,13 @@ namespace JamesAlcaraz.NlayeredAppDemo.WebApi.Controllers
                 return errorResult;
             }
 
-            return Ok();
+            return Ok(result);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _repo.Dispose();
-            }
-
-            base.Dispose(disposing);
-        }
-
-        private IHttpActionResult GetErrorResult(IdentityResult result)
+        private IHttpActionResult GetErrorResult(UserRegistrationResult result)
         {
             if (result == null)
-            {
                 return InternalServerError();
-            }
 
             if (!result.Succeeded)
             {
@@ -71,10 +64,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.WebApi.Controllers
                 }
 
                 if (ModelState.IsValid)
-                {
-                    // No ModelState errors are available to send, so just return an empty BadRequest.
                     return BadRequest();
-                }
 
                 return BadRequest(ModelState);
             }
