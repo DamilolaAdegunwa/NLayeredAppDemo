@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
-using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Specifications;
 using JamesAlcaraz.NlayeredAppDemo.Application.Dto.Products;
-using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
-using JamesAlcaraz.NlayeredAppDemo.Core.Repositories;
-using JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList;
-using JamesAlcaraz.NlayeredAppDemo.EntityFramework;
 
 namespace JamesAlcaraz.NlayeredAppDemo.WebApi.Controllers
 {

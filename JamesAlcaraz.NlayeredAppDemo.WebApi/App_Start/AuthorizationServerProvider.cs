@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
 using Autofac;
 using Autofac.Integration.Owin;
-using Autofac.Integration.WebApi;
-using JamesAlcaraz.NlayeredAppDemo.WebApi.Services;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
 using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices.Authentication;
 

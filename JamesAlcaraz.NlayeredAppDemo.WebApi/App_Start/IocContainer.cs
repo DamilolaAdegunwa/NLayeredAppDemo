@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Web;
-using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using AutoMapper;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
-using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Specifications;
-using JamesAlcaraz.NlayeredAppDemo.Application.Dto.Products;
 using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices.Authentication;
 using JamesAlcaraz.NlayeredAppDemo.Application.Mappings;
 using JamesAlcaraz.NlayeredAppDemo.Core.Entities;

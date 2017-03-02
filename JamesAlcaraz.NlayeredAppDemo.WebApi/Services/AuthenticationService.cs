@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices;
+﻿using System.Threading.Tasks;
 using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices.Authentication;
 using JamesAlcaraz.NlayeredAppDemo.EntityFramework;
-using JamesAlcaraz.NlayeredAppDemo.WebApi.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using JamesAlcaraz.NlayeredAppDemo.Application.InfrastructureServices.Authentication;
 using JamesAlcaraz.NlayeredAppDemo.WebApi.App_Start;
 
 namespace JamesAlcaraz.NlayeredAppDemo.WebApi.Services
