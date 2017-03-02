@@ -8,6 +8,7 @@ using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList;
 using AutoMapper;
+using JamesAlcaraz.NlayeredAppDemo.Application.Dto.Products;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
 {

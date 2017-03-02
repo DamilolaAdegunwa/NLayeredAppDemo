@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices.Interfaces;
 using JamesAlcaraz.NlayeredAppDemo.Application.Dto;
+using JamesAlcaraz.NlayeredAppDemo.Application.Dto.Products;
 using JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Web.ApiControllers

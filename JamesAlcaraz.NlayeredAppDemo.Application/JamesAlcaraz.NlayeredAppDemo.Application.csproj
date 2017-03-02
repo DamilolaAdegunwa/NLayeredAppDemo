@@ -47,11 +47,17 @@
   <ItemGroup>
     <Compile Include="ApplicationServices\Interfaces\IProductAppService.cs" />
     <Compile Include="ApplicationServices\ProductAppService.cs" />
+    <Compile Include="ApplicationServices\Specifications\CrudServiceBase.cs" />
+    <Compile Include="ApplicationServices\Specifications\CrudServiceBaseOfTPrimaryKey.cs" />
     <Compile Include="ApplicationServices\Specifications\IApplicationService.cs" />
-    <Compile Include="Dto\ProductCreateInput.cs" />
-    <Compile Include="Dto\ProductDetailsOutput.cs" />
-    <Compile Include="Dto\ProductGridOutput.cs" />
-    <Compile Include="Dto\ProductUpdateInput.cs" />
+    <Compile Include="ApplicationServices\Specifications\ICrudService.cs" />
+    <Compile Include="ApplicationServices\Specifications\ICrudServiceOfTPrimaryKey.cs" />
+    <Compile Include="ApplicationServices\Specifications\IHaveId.cs" />
+    <Compile Include="Dto\Product\ProductCreateInput.cs" />
+    <Compile Include="Dto\Product\ProductDetailsOutput.cs" />
+    <Compile Include="Dto\Product\ProductGridOutput.cs" />
+    <Compile Include="Dto\Product\ProductUpdateInput.cs" />
+
     <Compile Include="InfrastructureServices\Authentication\SignInOutput.cs" />
     <Compile Include="InfrastructureServices\Authentication\UserRegistrationInput.cs" />
     <Compile Include="InfrastructureServices\Authentication\UserRegistrationOutput.cs" />
@@ -63,9 +69,15 @@
       <Project>{f5a80d49-f98c-42f3-8092-b4385e8db54d}</Project>
       <Name>JamesAlcaraz.NlayeredAppDemo.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JamesAlcaraz.NlayeredAppDemo.EntityFramework\JamesAlcaraz.NlayeredAppDemo.EntityFramework.csproj">
+      <Project>{89F3EBD6-0DE5-45F4-B337-F569FA49EDEA}</Project>
+      <Name>JamesAlcaraz.NlayeredAppDemo.EntityFramework</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
