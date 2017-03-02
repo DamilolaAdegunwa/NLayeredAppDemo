@@ -146,6 +146,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\ApiExceptionHandler.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\AuthorizationServerProvider.cs" />
     <Compile Include="App_Start\IocContainer.cs" />

@@ -26,7 +26,8 @@ namespace JamesAlcaraz.NlayeredAppDemo.WebApi
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             jsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            
         }
     }
 }

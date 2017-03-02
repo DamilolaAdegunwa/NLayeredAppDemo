@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http.ExceptionHandling;
 
-namespace JamesAlcaraz.NlayeredAppDemo.Web.App_Start
+namespace JamesAlcaraz.NlayeredAppDemo.WebApi.App_Start
 {
-    public class WebApiExceptionHandler : ExceptionHandler
+    public class ApiExceptionHandler : ExceptionHandler
     {
         public override void Handle(ExceptionHandlerContext context)
         {

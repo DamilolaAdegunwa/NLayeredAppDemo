@@ -1,4 +1,3 @@
-using System.Web.Http;
 using System.Web.Mvc;
 using AutoMapper;
 using JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices;
@@ -10,7 +9,6 @@ using JamesAlcaraz.NlayeredAppDemo.Core.Uow;
 using JamesAlcaraz.NlayeredAppDemo.EntityFramework;
 using JamesAlcaraz.NlayeredAppDemo.EntityFramework.Repositories;
 using JamesAlcaraz.NlayeredAppDemo.EntityFramework.Uow;
-using JamesAlcaraz.NlayeredAppDemo.Web.App_Start;
 using JamesAlcaraz.NlayeredAppDemo.Web.Controllers;
 using Microsoft.Practices.Unity;
 using Unity.Mvc5;
@@ -38,7 +36,6 @@ namespace JamesAlcaraz.NlayeredAppDemo.Web
             container.RegisterType<ManageController>(new InjectionConstructor());
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
-            GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
 
         }
     }
