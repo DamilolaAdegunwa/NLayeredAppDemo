@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-
+import {NavLink} from './NavLink'
 export class SideMenu extends React.Component {
     
     render() {
@@ -36,11 +36,13 @@ export class SideMenu extends React.Component {
                 </div>
 
                 <ul className="main-menu">
-                    <li className="active">
-                        <Link to = {'/products'}>
-                            <i className="zmdi zmdi-home"></i>Products
-                        </Link>
-                    </li>
+                    <NavLink to = {'/products'}>
+                        <i className="zmdi zmdi-view-list"></i>Products
+                    </NavLink>
+                    <NavLink to = {'/login'}>
+                        <i className="zmdi zmdi-sign-in"></i>Login
+                    </NavLink>
+
                     <li><a href="typography.html"><i className="zmdi zmdi-format-underlined"></i> Typography</a></li>
                     <li><a href="tables.html"><i className="zmdi zmdi-view-list"></i> Tables</a></li>
                     <li><a href="form-elements.html"><i className="zmdi zmdi-collection-text"></i> Form Elements</a></li>

@@ -96,9 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bundle.js" />
+    <Content Include="components\Card.js" />
     <Content Include="components\Home.js" />
     <Content Include="components\Footer.js" />
     <Content Include="components\Header.js" />
+    <Content Include="components\Login.js" />
+    <Content Include="components\NavLink.js" />
     <Content Include="components\product\ProductList.js" />
     <Content Include="components\Root.js" />
     <Content Include="components\SideMenu.js" />

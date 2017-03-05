@@ -4,6 +4,8 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 
 import { Root } from './Components/Root';
 import { Home } from './Components/Home';
+import { Login } from './Components/Login';
+
 import { ProductList } from './components/product/ProductList'
 
 class App extends React.Component {
@@ -14,6 +16,7 @@ class App extends React.Component {
                     <IndexRoute component = {Home}/>
                     <Route path = {"home"} component = {Home}/>
                     <Route path = {"products"} component = {ProductList}/>
+                    <Route path = {"login"} component = {Login}/>
                 </Route>
             </Router>
         );

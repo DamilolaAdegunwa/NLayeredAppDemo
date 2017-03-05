@@ -15,11 +15,13 @@ export class Root extends React.Component {
 
                     <section id="content">
                         <div className="container">
-                            <div className="card">
-                                <div className="card-body card-padding text-center">
+
+                            <div className="row">
+                                <div className = "col-md-6">
                                     {this.props.children}
                                 </div>
                             </div>
+
                         </div>
                     </section>
                 </section>

@@ -39,6 +39,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.WebApi.Controllers
         }
 
         // POST: api/Products
+        [Authorize]
         public IHttpActionResult Post([FromBody]ProductCreateInput model)
         {
             var newProduct = _productAppService.Create(model);

@@ -20,8 +20,8 @@ namespace JamesAlcaraz.NlayeredAppDemo.WebApi.App_Start
             var autofacLifetimeScope = OwinContextExtensions.GetAutofacLifetimeScope(context.OwinContext);
             var auth = autofacLifetimeScope.Resolve<IAuthenticationService>();
 
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
-
+            //context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+            
             var user = await auth.SignIn(context.UserName, context.Password);
 
             if (user == null)
