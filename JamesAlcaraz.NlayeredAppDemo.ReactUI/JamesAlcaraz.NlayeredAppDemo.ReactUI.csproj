@@ -99,6 +99,7 @@
     <Content Include="components\Home.js" />
     <Content Include="components\Footer.js" />
     <Content Include="components\Header.js" />
+    <Content Include="components\product\ProductList.js" />
     <Content Include="components\Root.js" />
     <Content Include="components\SideMenu.js" />
     <Content Include="css\app_1.min.css" />
@@ -3126,7 +3127,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="components\product\" />
     <Folder Include="vendors\bower_components\bower\Packager\" />
   </ItemGroup>
   <PropertyGroup>
