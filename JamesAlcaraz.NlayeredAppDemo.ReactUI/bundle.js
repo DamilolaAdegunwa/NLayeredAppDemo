@@ -26986,6 +26986,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var baseUrl = 'http://localhost:58010';
+
 	var ProductList = exports.ProductList = function (_React$Component) {
 	    _inherits(ProductList, _React$Component);
 
@@ -27003,8 +27005,7 @@
 	    _createClass(ProductList, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            var root = 'https://jsonplaceholder.typicode.com';
-	            _axios2.default.get(root + '/posts/1').then(function (response) {
+	            _axios2.default.get(baseUrl + '/api/products').then(function (response) {
 	                console.log(response);
 	            });
 	        }

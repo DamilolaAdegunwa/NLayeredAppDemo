@@ -35,6 +35,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.WebApi
             app.UseAutofacWebApi(config);
 
             ConfigureOAuth(app);
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
 
         }
