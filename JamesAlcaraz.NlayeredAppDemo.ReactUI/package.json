@@ -19,7 +19,9 @@
     "react-router": "^3.0.2"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js --history-api-fallback"
+    "start": "npm run build",
+    "build": "webpack --config webpack.config.js --history-api-fallback",
+    "build:prod" : ""
   },
   "-vs-binding": {
     "AfterBuild": [

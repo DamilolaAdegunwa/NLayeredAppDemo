@@ -26624,7 +26624,7 @@
 /* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -26636,6 +26636,8 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26655,246 +26657,246 @@
 	    }
 
 	    _createClass(SideMenu, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "aside",
-	                { id: "sidebar", className: "sidebar c-overflow" },
+	                'aside',
+	                { id: 'sidebar', className: 'sidebar c-overflow' },
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "s-profile" },
+	                    'div',
+	                    { className: 's-profile' },
 	                    _react2.default.createElement(
-	                        "a",
-	                        { href: "", "data-ma-action": "profile-menu-toggle" },
+	                        'a',
+	                        { href: '', 'data-ma-action': 'profile-menu-toggle' },
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "sp-pic" },
-	                            _react2.default.createElement("img", { src: "img/profile-pic.jpg", alt: "" })
+	                            'div',
+	                            { className: 'sp-pic' },
+	                            _react2.default.createElement('img', { src: 'img/profile-pic.jpg', alt: '' })
 	                        ),
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "sp-info" },
-	                            "James Alcaraz",
-	                            _react2.default.createElement("i", { className: "zmdi zmdi-caret-down" })
+	                            'div',
+	                            { className: 'sp-info' },
+	                            'James Alcaraz',
+	                            _react2.default.createElement('i', { className: 'zmdi zmdi-caret-down' })
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "ul",
-	                        { className: "main-menu" },
+	                        'ul',
+	                        { className: 'main-menu' },
 	                        _react2.default.createElement(
-	                            "li",
+	                            'li',
 	                            null,
 	                            _react2.default.createElement(
-	                                "a",
-	                                { href: "" },
-	                                _react2.default.createElement("i", { className: "zmdi zmdi-account" }),
-	                                " View Profile"
+	                                'a',
+	                                { href: '' },
+	                                _react2.default.createElement('i', { className: 'zmdi zmdi-account' }),
+	                                ' View Profile'
 	                            )
 	                        ),
 	                        _react2.default.createElement(
-	                            "li",
+	                            'li',
 	                            null,
 	                            _react2.default.createElement(
-	                                "a",
-	                                { href: "" },
-	                                _react2.default.createElement("i", { className: "zmdi zmdi-input-antenna" }),
-	                                " Privacy Settings"
+	                                'a',
+	                                { href: '' },
+	                                _react2.default.createElement('i', { className: 'zmdi zmdi-input-antenna' }),
+	                                ' Privacy Settings'
 	                            )
 	                        ),
 	                        _react2.default.createElement(
-	                            "li",
+	                            'li',
 	                            null,
 	                            _react2.default.createElement(
-	                                "a",
-	                                { href: "" },
-	                                _react2.default.createElement("i", { className: "zmdi zmdi-settings" }),
-	                                " Settings"
+	                                'a',
+	                                { href: '' },
+	                                _react2.default.createElement('i', { className: 'zmdi zmdi-settings' }),
+	                                ' Settings'
 	                            )
 	                        ),
 	                        _react2.default.createElement(
-	                            "li",
+	                            'li',
 	                            null,
 	                            _react2.default.createElement(
-	                                "a",
-	                                { href: "" },
-	                                _react2.default.createElement("i", { className: "zmdi zmdi-time-restore" }),
-	                                " Logout"
+	                                'a',
+	                                { href: '' },
+	                                _react2.default.createElement('i', { className: 'zmdi zmdi-time-restore' }),
+	                                ' Logout'
 	                            )
 	                        )
 	                    )
 	                ),
 	                _react2.default.createElement(
-	                    "ul",
-	                    { className: "main-menu" },
+	                    'ul',
+	                    { className: 'main-menu' },
 	                    _react2.default.createElement(
-	                        "li",
-	                        { className: "active" },
+	                        'li',
+	                        { className: 'active' },
 	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "index.html" },
-	                            _react2.default.createElement("i", { className: "zmdi zmdi-home" }),
-	                            " Home"
+	                            _reactRouter.Link,
+	                            { to: '/products' },
+	                            _react2.default.createElement('i', { className: 'zmdi zmdi-home' }),
+	                            'Products'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "li",
+	                        'li',
 	                        null,
 	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "typography.html" },
-	                            _react2.default.createElement("i", { className: "zmdi zmdi-format-underlined" }),
-	                            " Typography"
+	                            'a',
+	                            { href: 'typography.html' },
+	                            _react2.default.createElement('i', { className: 'zmdi zmdi-format-underlined' }),
+	                            ' Typography'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "li",
+	                        'li',
 	                        null,
 	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "tables.html" },
-	                            _react2.default.createElement("i", { className: "zmdi zmdi-view-list" }),
-	                            " Tables"
+	                            'a',
+	                            { href: 'tables.html' },
+	                            _react2.default.createElement('i', { className: 'zmdi zmdi-view-list' }),
+	                            ' Tables'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "li",
+	                        'li',
 	                        null,
 	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "form-elements.html" },
-	                            _react2.default.createElement("i", { className: "zmdi zmdi-collection-text" }),
-	                            " Form Elements"
+	                            'a',
+	                            { href: 'form-elements.html' },
+	                            _react2.default.createElement('i', { className: 'zmdi zmdi-collection-text' }),
+	                            ' Form Elements'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "li",
+	                        'li',
 	                        null,
 	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "buttons.html" },
-	                            _react2.default.createElement("i", { className: "zmdi zmdi-crop-16-9" }),
-	                            " Buttons"
+	                            'a',
+	                            { href: 'buttons.html' },
+	                            _react2.default.createElement('i', { className: 'zmdi zmdi-crop-16-9' }),
+	                            ' Buttons'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "li",
+	                        'li',
 	                        null,
 	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "icons.html" },
-	                            _react2.default.createElement("i", { className: "zmdi zmdi-airplane" }),
-	                            "Icons"
+	                            'a',
+	                            { href: 'icons.html' },
+	                            _react2.default.createElement('i', { className: 'zmdi zmdi-airplane' }),
+	                            'Icons'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "li",
-	                        { className: "sub-menu" },
+	                        'li',
+	                        { className: 'sub-menu' },
 	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "", "data-ma-action": "submenu-toggle" },
-	                            _react2.default.createElement("i", { className: "zmdi zmdi-collection-item" }),
-	                            " Sample Pages"
+	                            'a',
+	                            { href: '', 'data-ma-action': 'submenu-toggle' },
+	                            _react2.default.createElement('i', { className: 'zmdi zmdi-collection-item' }),
+	                            ' Sample Pages'
 	                        ),
 	                        _react2.default.createElement(
-	                            "ul",
+	                            'ul',
 	                            null,
 	                            _react2.default.createElement(
-	                                "li",
+	                                'li',
 	                                null,
 	                                _react2.default.createElement(
-	                                    "a",
-	                                    { href: "login.html" },
-	                                    "Login and Sign Up"
+	                                    'a',
+	                                    { href: 'login.html' },
+	                                    'Login and Sign Up'
 	                                )
 	                            ),
 	                            _react2.default.createElement(
-	                                "li",
+	                                'li',
 	                                null,
 	                                _react2.default.createElement(
-	                                    "a",
-	                                    { href: "lockscreen.html" },
-	                                    "Lockscreen"
+	                                    'a',
+	                                    { href: 'lockscreen.html' },
+	                                    'Lockscreen'
 	                                )
 	                            ),
 	                            _react2.default.createElement(
-	                                "li",
+	                                'li',
 	                                null,
 	                                _react2.default.createElement(
-	                                    "a",
-	                                    { href: "404.html" },
-	                                    "Error 404"
+	                                    'a',
+	                                    { href: '404.html' },
+	                                    'Error 404'
 	                                )
 	                            )
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "li",
-	                        { className: "sub-menu" },
+	                        'li',
+	                        { className: 'sub-menu' },
 	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "", "data-ma-action": "submenu-toggle" },
-	                            _react2.default.createElement("i", { className: "zmdi zmdi-menu" }),
-	                            " 3 Level Menu"
+	                            'a',
+	                            { href: '', 'data-ma-action': 'submenu-toggle' },
+	                            _react2.default.createElement('i', { className: 'zmdi zmdi-menu' }),
+	                            ' 3 Level Menu'
 	                        ),
 	                        _react2.default.createElement(
-	                            "ul",
+	                            'ul',
 	                            null,
 	                            _react2.default.createElement(
-	                                "li",
+	                                'li',
 	                                null,
 	                                _react2.default.createElement(
-	                                    "a",
-	                                    { href: "form-elements.html" },
-	                                    "Level 2 link"
+	                                    'a',
+	                                    { href: 'form-elements.html' },
+	                                    'Level 2 link'
 	                                )
 	                            ),
 	                            _react2.default.createElement(
-	                                "li",
-	                                { className: "sub-menu" },
+	                                'li',
+	                                { className: 'sub-menu' },
 	                                _react2.default.createElement(
-	                                    "a",
-	                                    { href: "", "data-ma-action": "submenu-toggle" },
-	                                    "I have children too"
+	                                    'a',
+	                                    { href: '', 'data-ma-action': 'submenu-toggle' },
+	                                    'I have children too'
 	                                ),
 	                                _react2.default.createElement(
-	                                    "ul",
+	                                    'ul',
 	                                    null,
 	                                    _react2.default.createElement(
-	                                        "li",
+	                                        'li',
 	                                        null,
 	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { href: "" },
-	                                            "Level 3 link"
+	                                            'a',
+	                                            { href: '' },
+	                                            'Level 3 link'
 	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
-	                                        "li",
+	                                        'li',
 	                                        null,
 	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { href: "" },
-	                                            "Another Level 3 link"
+	                                            'a',
+	                                            { href: '' },
+	                                            'Another Level 3 link'
 	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
-	                                        "li",
+	                                        'li',
 	                                        null,
 	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { href: "" },
-	                                            "Third one"
+	                                            'a',
+	                                            { href: '' },
+	                                            'Third one'
 	                                        )
 	                                    )
 	                                )
 	                            ),
 	                            _react2.default.createElement(
-	                                "li",
+	                                'li',
 	                                null,
 	                                _react2.default.createElement(
-	                                    "a",
-	                                    { href: "" },
-	                                    "One more 2"
+	                                    'a',
+	                                    { href: '' },
+	                                    'One more 2'
 	                                )
 	                            )
 	                        )
@@ -26959,7 +26961,7 @@
 /* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -26986,16 +26988,23 @@
 	    function ProductList() {
 	        _classCallCheck(this, ProductList);
 
-	        return _possibleConstructorReturn(this, (ProductList.__proto__ || Object.getPrototypeOf(ProductList)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (ProductList.__proto__ || Object.getPrototypeOf(ProductList)).call(this));
+
+	        _this.state = {
+	            UserName: "John"
+	        };
+	        return _this;
 	    }
 
 	    _createClass(ProductList, [{
-	        key: 'render',
+	        key: "render",
 	        value: function render() {
+
 	            return _react2.default.createElement(
-	                'span',
+	                "span",
 	                null,
-	                'Product List'
+	                "Product List 3 - ",
+	                this.state.UserName
 	            );
 	        }
 	    }]);

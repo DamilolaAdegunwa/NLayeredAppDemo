@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export class SideMenu extends React.Component {
     
@@ -35,7 +36,11 @@ export class SideMenu extends React.Component {
                 </div>
 
                 <ul className="main-menu">
-                    <li className="active"><a href="index.html"><i className="zmdi zmdi-home"></i> Home</a></li>
+                    <li className="active">
+                        <Link to = {'/products'}>
+                            <i className="zmdi zmdi-home"></i>Products
+                        </Link>
+                    </li>
                     <li><a href="typography.html"><i className="zmdi zmdi-format-underlined"></i> Typography</a></li>
                     <li><a href="tables.html"><i className="zmdi zmdi-view-list"></i> Tables</a></li>
                     <li><a href="form-elements.html"><i className="zmdi zmdi-collection-text"></i> Form Elements</a></li>
