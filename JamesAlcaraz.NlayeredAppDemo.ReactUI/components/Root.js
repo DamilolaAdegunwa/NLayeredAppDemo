@@ -9,19 +9,23 @@ export class Root extends React.Component {
         return(
             <div>
                 <Header />
-                <SideMenu />
+                
+                <section id="main">
+                    <SideMenu />
 
-                <section id="content">
-                    <div className="container">
-                        <div className="card">
-                            <div className="card-body card-padding text-center">
-                                {this.props.childeren}
+                    <section id="content">
+                        <div className="container">
+                            <div className="card">
+                                <div className="card-body card-padding text-center">
+                                    {this.props.children}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </section>
 
                 <Footer />
+
             </div>
             
         );
