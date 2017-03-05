@@ -12,7 +12,7 @@ export class SideMenu extends React.Component {
                         </div>
 
                         <div className="sp-info">
-                            Malinda Hollaway
+                            James Alcaraz
 
                             <i className="zmdi zmdi-caret-down"></i>
                         </div>

@@ -1,25 +1,23 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
-import { Header } from './Components/Header';
-import { SideMenu } from './Components/SideMenu';
-import {Content} from './Components/Content';
-import {Footer} from './Components/Footer';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router'
+
+import { Root } from './Components/Root';
+import { Home } from './Components/Home';
+import { ProductList } from './components/product/ProductList'
 
 class App extends React.Component {
     render() {
         return(
-            <div>
-                <Header />
-                <section id="main">
-                    <SideMenu />
-                    <Content />
-                    <Footer />
-                </section>
-            </div>
+            <Router history = {browserHistory}>
+                <Route path = {"/"} component = {Root}>
+                    <IndexRoute component = {Home}/>
+                    <Route path = {"home"} component = {Home}/>
+                    <Route path = {"products"} component = {ProductList}/>
+                </Route>
+            </Router>
         );
-            
     }
-
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));

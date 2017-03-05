@@ -96,10 +96,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bundle.js" />
-    <Content Include="components\ChatMenu.js" />
-    <Content Include="components\Content.js" />
+    <Content Include="components\Home.js" />
     <Content Include="components\Footer.js" />
     <Content Include="components\Header.js" />
+    <Content Include="components\Root.js" />
     <Content Include="components\SideMenu.js" />
     <Content Include="css\app_1.min.css" />
     <Content Include="css\app_2.min.css" />
@@ -120,7 +120,6 @@
     <Content Include="js\app.min.js" />
     <Content Include="js\inc\actions.js" />
     <Content Include="js\inc\functions.js" />
-    <Content Include="indexPrev.html" />
     <Content Include="index.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -3127,6 +3126,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="components\product\" />
     <Folder Include="vendors\bower_components\bower\Packager\" />
   </ItemGroup>
   <PropertyGroup>
