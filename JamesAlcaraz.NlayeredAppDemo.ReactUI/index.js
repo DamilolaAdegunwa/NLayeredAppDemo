@@ -2,11 +2,11 @@
 import ReactDOM from 'react-dom';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 
-import { Root } from './Components/Root';
-import { Home } from './Components/Home';
-import { Login } from './Components/Login';
+import { Root } from './app/layout/Root';
+import { Home } from './app/home/Home';
+import { Login } from './app/user/Login';
 
-import { ProductList } from './components/product/ProductList'
+import { ProductList } from './app/product/ProductList'
 
 class App extends React.Component {
     render() {

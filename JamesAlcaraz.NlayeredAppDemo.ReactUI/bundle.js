@@ -27088,33 +27088,18 @@
 	        value: function handleSubmit(event) {
 	            event.preventDefault();
 
+	            //TODO: polyfill for IE for URLSearchParams
 	            var params = new URLSearchParams();
 	            params.append('grant_type', 'password');
 	            params.append('username', this.state.email);
 	            params.append('password', this.state.password);
 
+	            //Post via application/x-www-form-urlencoded
 	            _axios2.default.post(baseUrl + '/token', params).then(function (response) {
 	                console.log(response);
 	            }).catch(function (error) {
 	                console.log(error);
 	            });
-
-	            // axios({
-	            //     method: 'POST',
-	            //     url: baseUrl + '/token',
-	            //     headers: {
-	            //         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-	            //     },
-	            //     data: {
-	            //         grant_type: 'password',
-	            //         username: this.state.email,
-	            //         password: this.state.password
-	            //     }
-	            // }).then((response) => {
-	            //     console.log(response);
-	            // }).catch((err) => {
-	            //     console.log(err);
-	            // });
 	        }
 	    }, {
 	        key: 'componentDidMount',
@@ -28594,7 +28579,7 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _Card = __webpack_require__(259);
+	var _Card = __webpack_require__(257);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28653,82 +28638,287 @@
 	                _Card.Card,
 	                { cardHeader: "Product List" },
 	                _react2.default.createElement(
-	                    'span',
-	                    null,
-	                    'Product List 3 - ',
-	                    this.state.UserName
-	                ),
-	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: this.onProductClick.bind(this) },
-	                    'Product Name'
+	                    'div',
+	                    { className: 'table-responsive' },
+	                    _react2.default.createElement(
+	                        'table',
+	                        { className: 'table table-hover' },
+	                        _react2.default.createElement(
+	                            'thead',
+	                            null,
+	                            _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    '#'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    'First Name'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    'Last Name'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    'Username'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    'Nickname'
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'tbody',
+	                            null,
+	                            _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '1'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Alexandra'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Christopher'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '@makinton'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Ducky'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '2'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Madeleine'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Hollaway'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '@hollway'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Cheese'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '3'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Sebastian'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Johnston'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '@sebastian'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Jaycee'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '4'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Mitchell'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Christin'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '@mitchell4u'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'AdskiDeAnus'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '5'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Elizabeth'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Belkitt'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '@belkitt'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Goat'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '6'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Benjamin'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Parnell'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '@wayne234'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Pokie'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '7'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Katherine'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Buckland'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '@anitabelle'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Wokie'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '8'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Nicholas'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Walmart'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    '@mwalmart'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    'Spike'
+	                                )
+	                            )
+	                        )
+	                    )
 	                )
 	            );
 	        }
 	    }]);
 
 	    return ProductList;
-	}(_react2.default.Component);
-
-/***/ },
-/* 259 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.Card = undefined;
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Card = exports.Card = function (_React$Component) {
-	    _inherits(Card, _React$Component);
-
-	    function Card() {
-	        _classCallCheck(this, Card);
-
-	        return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).apply(this, arguments));
-	    }
-
-	    _createClass(Card, [{
-	        key: "render",
-	        value: function render() {
-	            return _react2.default.createElement(
-	                "div",
-	                { className: "card" },
-	                _react2.default.createElement(
-	                    "div",
-	                    { className: "card-header ch-alt m-b-20" },
-	                    _react2.default.createElement(
-	                        "h2",
-	                        null,
-	                        this.props.cardHeader
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    "div",
-	                    { className: "card-body card-padding" },
-	                    this.props.children
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Card;
 	}(_react2.default.Component);
 
 /***/ }

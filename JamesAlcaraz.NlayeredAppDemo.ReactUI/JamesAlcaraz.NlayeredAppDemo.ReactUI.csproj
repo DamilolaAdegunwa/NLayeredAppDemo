@@ -44,34 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -96,15 +68,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bundle.js" />
-    <Content Include="components\Card.js" />
-    <Content Include="components\Home.js" />
-    <Content Include="components\Footer.js" />
-    <Content Include="components\Header.js" />
-    <Content Include="components\Login.js" />
-    <Content Include="components\NavLink.js" />
-    <Content Include="components\product\ProductList.js" />
-    <Content Include="components\Root.js" />
-    <Content Include="components\SideMenu.js" />
+    <Content Include="app\shared\Card.js" />
+    <Content Include="app\home\Home.js" />
+    <Content Include="app\layout\Footer.js" />
+    <Content Include="app\layout\Header.js" />
+    <Content Include="app\user\Login.js" />
+    <Content Include="app\layout\NavLink.js" />
+    <Content Include="app\product\ProductList.js" />
+    <Content Include="app\layout\Root.js" />
+    <Content Include="app\layout\SideMenu.js" />
     <Content Include="css\app_1.min.css" />
     <Content Include="css\app_2.min.css" />
     <Content Include="css\demo.css" />
@@ -120,16 +92,8 @@
     <Content Include="img\select%402x.png" />
     <Content Include="img\select.png" />
     <Content Include="index.html" />
-    <Content Include="js\app.js" />
-    <Content Include="js\app.min.js" />
-    <Content Include="js\inc\actions.js" />
-    <Content Include="js\inc\functions.js" />
     <Content Include="index.js" />
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="package.json" />
     <Content Include="vendors\bower_components\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="vendors\bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
@@ -3130,6 +3094,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\layout\components\" />
     <Folder Include="vendors\bower_components\bower\Packager\" />
   </ItemGroup>
   <PropertyGroup>

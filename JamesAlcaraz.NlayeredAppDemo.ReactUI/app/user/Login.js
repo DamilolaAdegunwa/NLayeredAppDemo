@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Card} from './Card';
+import {Card} from '../shared/Card';
 
 const baseUrl = 'http://localhost:58010';
 

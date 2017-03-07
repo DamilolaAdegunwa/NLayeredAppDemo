@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\PurchaseOrder.cs" />
     <Compile Include="Entities\SalesOrder.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\SalesOrderStatus.cs" />
