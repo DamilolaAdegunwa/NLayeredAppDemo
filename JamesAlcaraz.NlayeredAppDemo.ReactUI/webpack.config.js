@@ -1,14 +1,14 @@
 ﻿"use strict";
 
 module.exports = {
-    entry: "./index.js",
+    entry: "./index.jsx",
     output: {
         filename: "bundle.js"
     },
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.jsx$/,
                 loader: "babel-loader",
                 exclude: /node_modules/,
                 query: {
@@ -16,5 +16,8 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+    }  
 };
