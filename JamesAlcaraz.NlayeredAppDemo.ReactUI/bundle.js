@@ -28581,6 +28581,8 @@
 
 	var _Card = __webpack_require__(257);
 
+	var _DataTable = __webpack_require__(259);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28600,14 +28602,16 @@
 	        var _this = _possibleConstructorReturn(this, (ProductList.__proto__ || Object.getPrototypeOf(ProductList)).call(this));
 
 	        _this.state = {
-	            UserName: "John"
+	            products: [],
+	            columns: []
 	        };
 	        return _this;
 	    }
 
 	    _createClass(ProductList, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            var _this2 = this;
 
 	            // axios({
 	            //     method: 'post',
@@ -28622,18 +28626,23 @@
 	            // });
 
 	            _axios2.default.get(baseUrl + '/api/products').then(function (response) {
-	                console.log(response);
+	                _this2.setState({
+	                    products: response.data.items,
+	                    columns: response.data.columns
+	                });
 	            });
 	        }
 	    }, {
 	        key: 'onProductClick',
 	        value: function onProductClick() {
-	            alert(this.state.UserName);
+	            //alert(this.state.UserName);
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-
+	            var products = this.state.products,
+	                // [{key, value}]
+	            columns = this.state.columns;
 	            return _react2.default.createElement(
 	                _Card.Card,
 	                { cardHeader: "Product List" },
@@ -28641,275 +28650,60 @@
 	                    'div',
 	                    { className: 'table-responsive' },
 	                    _react2.default.createElement(
-	                        'table',
-	                        { className: 'table table-hover' },
+	                        'div',
+	                        { id: 'data-table-basic_wrapper', className: 'dataTables_wrapper' },
+	                        _react2.default.createElement(_DataTable.DataTable, { cols: columns, data: products }),
 	                        _react2.default.createElement(
-	                            'thead',
-	                            null,
-	                            _react2.default.createElement(
-	                                'tr',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'th',
-	                                    null,
-	                                    '#'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'th',
-	                                    null,
-	                                    'First Name'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'th',
-	                                    null,
-	                                    'Last Name'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'th',
-	                                    null,
-	                                    'Username'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'th',
-	                                    null,
-	                                    'Nickname'
-	                                )
-	                            )
+	                            'div',
+	                            { className: 'dataTables_info', id: 'data-table-basic_info', role: 'status', 'aria-live': 'polite' },
+	                            'Showing 1 to 10 of 57 entries'
 	                        ),
 	                        _react2.default.createElement(
-	                            'tbody',
-	                            null,
+	                            'div',
+	                            { className: 'dataTables_paginate paging_simple_numbers', id: 'data-table-basic_paginate' },
 	                            _react2.default.createElement(
-	                                'tr',
+	                                'a',
+	                                { className: 'paginate_button previous disabled', 'aria-controls': 'data-table-basic', 'data-dt-idx': '0', tabIndex: '0', id: 'data-table-basic_previous' },
+	                                'Previous'
+	                            ),
+	                            _react2.default.createElement(
+	                                'span',
 	                                null,
 	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
+	                                    'a',
+	                                    { className: 'paginate_button current', 'aria-controls': 'data-table-basic', 'data-dt-idx': '1', tabIndex: '0' },
 	                                    '1'
 	                                ),
 	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Alexandra'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Christopher'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    '@makinton'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Ducky'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'tr',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
+	                                    'a',
+	                                    { className: 'paginate_button ', 'aria-controls': 'data-table-basic', 'data-dt-idx': '2', tabIndex: '0' },
 	                                    '2'
 	                                ),
 	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Madeleine'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Hollaway'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    '@hollway'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Cheese'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'tr',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
+	                                    'a',
+	                                    { className: 'paginate_button ', 'aria-controls': 'data-table-basic', 'data-dt-idx': '3', tabIndex: '0' },
 	                                    '3'
 	                                ),
 	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Sebastian'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Johnston'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    '@sebastian'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Jaycee'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'tr',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
+	                                    'a',
+	                                    { className: 'paginate_button ', 'aria-controls': 'data-table-basic', 'data-dt-idx': '4', tabIndex: '0' },
 	                                    '4'
 	                                ),
 	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Mitchell'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Christin'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    '@mitchell4u'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'AdskiDeAnus'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'tr',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
+	                                    'a',
+	                                    { className: 'paginate_button ', 'aria-controls': 'data-table-basic', 'data-dt-idx': '5', tabIndex: '0' },
 	                                    '5'
 	                                ),
 	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Elizabeth'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Belkitt'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    '@belkitt'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Goat'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'tr',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
+	                                    'a',
+	                                    { className: 'paginate_button ', 'aria-controls': 'data-table-basic', 'data-dt-idx': '6', tabIndex: '0' },
 	                                    '6'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Benjamin'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Parnell'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    '@wayne234'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Pokie'
 	                                )
 	                            ),
 	                            _react2.default.createElement(
-	                                'tr',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    '7'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Katherine'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Buckland'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    '@anitabelle'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Wokie'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'tr',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    '8'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Nicholas'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Walmart'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    '@mwalmart'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    'Spike'
-	                                )
+	                                'a',
+	                                { className: 'paginate_button next', 'aria-controls': 'data-table-basic', 'data-dt-idx': '7', tabIndex: '0', id: 'data-table-basic_next' },
+	                                'Next'
 	                            )
 	                        )
 	                    )
@@ -28919,6 +28713,107 @@
 	    }]);
 
 	    return ProductList;
+	}(_react2.default.Component);
+
+/***/ },
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.DataTable = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var DataTable = exports.DataTable = function (_React$Component) {
+	    _inherits(DataTable, _React$Component);
+
+	    function DataTable(props) {
+	        _classCallCheck(this, DataTable);
+
+	        return _possibleConstructorReturn(this, (DataTable.__proto__ || Object.getPrototypeOf(DataTable)).call(this, props));
+	    }
+
+	    _createClass(DataTable, [{
+	        key: "generateHeaders",
+	        value: function generateHeaders() {
+	            var cols = this.props.cols; // [{key, value}]
+
+	            // generate our header (th) cell components
+	            return cols.map(function (colData) {
+	                return _react2.default.createElement(
+	                    "th",
+	                    { key: colData.key },
+	                    colData.value
+	                );
+	            });
+	        }
+	    }, {
+	        key: "generateRows",
+	        value: function generateRows() {
+	            var cols = this.props.cols,
+	                // [{key, value}]
+	            data = this.props.data;
+
+	            return data.map(function (item) {
+	                // handle the column data within each row
+
+	                var objMembers = Object.keys(item);
+	                var cells = objMembers.map(function (member) {
+
+	                    // colData.key might be "firstName"
+	                    return _react2.default.createElement(
+	                        "td",
+	                        null,
+	                        item[member]
+	                    );
+	                });
+	                return _react2.default.createElement(
+	                    "tr",
+	                    { key: item.id },
+	                    cells
+	                );
+	            });
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            var headerComponents = this.generateHeaders(),
+	                rowComponents = this.generateRows();
+
+	            return _react2.default.createElement(
+	                "table",
+	                { id: "data-table-basic", className: "table table-striped dataTable" },
+	                _react2.default.createElement(
+	                    "thead",
+	                    null,
+	                    headerComponents
+	                ),
+	                _react2.default.createElement(
+	                    "tbody",
+	                    null,
+	                    rowComponents
+	                )
+	            );
+	        }
+	    }]);
+
+	    return DataTable;
 	}(_react2.default.Component);
 
 /***/ }

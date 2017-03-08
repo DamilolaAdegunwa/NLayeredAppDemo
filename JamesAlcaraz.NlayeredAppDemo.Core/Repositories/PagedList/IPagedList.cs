@@ -50,5 +50,9 @@ namespace JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList
         /// </summary>
         IEnumerable<T> Items { get; }
 
+        /// <summary>
+        /// Returns column based on properties of T, where properties can have display attributes
+        /// </summary>
+        IEnumerable<KeyValuePair<string,string>> Columns { get; }
     }
 }

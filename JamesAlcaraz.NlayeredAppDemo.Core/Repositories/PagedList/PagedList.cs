@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,7 +55,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList
                     ? superSet.Take(pageSize).ToList()
                     : superSet.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList());
             }
-                
+
         }
 
         public int TotalItemCount { get; protected set; }
@@ -97,6 +99,24 @@ namespace JamesAlcaraz.NlayeredAppDemo.Core.Repositories.PagedList
         public IEnumerable<T> Items
         {
             get { return Subset; }
+        }
+
+        /// <summary>
+        /// Returns list of key value paired property names of T where Key is the prop's name and Value is the prop's display name attribute
+        /// If prop has no display name attr, use prop name as key and value
+        /// </summary>
+        public IEnumerable<KeyValuePair<string, string>> Columns {
+            get
+            {
+                var props = typeof(T).GetProperties()
+                    .Select( p => new KeyValuePair<string, string>( 
+                            p.Name, 
+                            (p.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute) != null 
+                                ? (p.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute).Name
+                                : p.Name
+                    ));
+                return props;
+            }
         }
     }
 }
