@@ -4,6 +4,7 @@ using JamesAlcaraz.NlayeredAppDemo.EntityFramework;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using JamesAlcaraz.NlayeredAppDemo.WebApi.App_Start;
+using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 
 namespace JamesAlcaraz.NlayeredAppDemo.WebApi.Services
 {

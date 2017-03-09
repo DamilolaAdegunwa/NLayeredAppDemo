@@ -33,7 +33,8 @@ namespace JamesAlcaraz.NlayeredAppDemo.Application.ApplicationServices
                          select new ProductGridOutput
                          {
                              Id = p.Id,
-                             Description = p.Description
+                             Description = p.Description,
+                             UnitPrice = p.UnitPrice
                          };
             return output;
         }

@@ -13,5 +13,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.Core.Entities
         public decimal UnitPrice { get; set; }
 
         public virtual ICollection<SalesOrderProduct> Orders { get; set; }
+
+        //public virtual Ius CreatedBy { get; set; }//
     }
 }

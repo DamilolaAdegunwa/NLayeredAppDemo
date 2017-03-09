@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using JamesAlcaraz.NlayeredAppDemo.EntityFramework;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 
 namespace JamesAlcaraz.NlayeredAppDemo.WebApi.App_Start
 {

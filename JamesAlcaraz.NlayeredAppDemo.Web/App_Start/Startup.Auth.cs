@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using JamesAlcaraz.NlayeredAppDemo.Web.Models;
 using JamesAlcaraz.NlayeredAppDemo.EntityFramework;
+using JamesAlcaraz.NlayeredAppDemo.Core.Entities;
 
 namespace JamesAlcaraz.NlayeredAppDemo.Web
 {
