@@ -68,15 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bundle.js" />
-    <Content Include="app\shared\Card.js" />
-    <Content Include="app\home\Home.js" />
-    <Content Include="app\layout\Footer.js" />
-    <Content Include="app\layout\Header.js" />
-    <Content Include="app\user\Login.js" />
-    <Content Include="app\layout\NavLink.js" />
-    <Content Include="app\product\ProductList.js" />
-    <Content Include="app\layout\Root.js" />
-    <Content Include="app\layout\SideMenu.js" />
     <Content Include="css\app_1.min.css" />
     <Content Include="css\app_2.min.css" />
     <Content Include="css\demo.css" />
@@ -92,7 +83,6 @@
     <Content Include="img\select%402x.png" />
     <Content Include="img\select.png" />
     <Content Include="index.html" />
-    <Content Include="index.js" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="vendors\bower_components\bootstrap\dist\css\bootstrap-theme.css" />
@@ -3077,6 +3067,17 @@
     <Content Include="vendors\bower_components\Waves\src\sass\waves.sass" />
     <Content Include="vendors\bower_components\Waves\src\scss\waves.scss" />
     <Content Include="vendors\bower_components\Waves\src\stylus\waves.styl" />
+    <Content Include="index.jsx" />
+    <Content Include="app\home\Home.jsx" />
+    <Content Include="app\layout\Footer.jsx" />
+    <Content Include="app\layout\Header.jsx" />
+    <Content Include="app\layout\NavLink.jsx" />
+    <Content Include="app\layout\Root.jsx" />
+    <Content Include="app\layout\SideMenu.jsx" />
+    <Content Include="app\product\ProductList.jsx" />
+    <Content Include="app\shared\Card.jsx" />
+    <Content Include="app\shared\DataTable.jsx" />
+    <Content Include="app\user\Login.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
