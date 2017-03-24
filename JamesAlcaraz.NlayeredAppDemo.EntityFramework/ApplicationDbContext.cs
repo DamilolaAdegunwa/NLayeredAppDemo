@@ -40,6 +40,8 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
             modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
             modelBuilder.Properties<decimal>().Configure(c => c.HasPrecision(16, 3));
 
+            RenameIdentitySchema(modelBuilder);
+            
             //Per Entity settings
             modelBuilder.Configurations.Add(new ProductMap());
             modelBuilder.Configurations.Add(new SalesOrderMap());
@@ -47,6 +49,7 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
             modelBuilder.Configurations.Add(new CustomerMap());
             modelBuilder.Configurations.Add(new SalesOrderStatusMap());
 
+            
         }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
@@ -105,6 +108,20 @@ namespace JamesAlcaraz.NlayeredAppDemo.EntityFramework
                 }
 
             }
+        }
+
+
+        /// <summary>
+        /// Overrride dbo schema in Identity tables
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        private void RenameIdentitySchema(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ApplicationUser>().ToTable("User", "Security");
+            modelBuilder.Entity<IdentityRole>().ToTable("Role", "Security");
+            modelBuilder.Entity<IdentityUserRole>().ToTable("UserRole", "Security");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaim", "Security");
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogin", "Security");
         }
     }
 }
