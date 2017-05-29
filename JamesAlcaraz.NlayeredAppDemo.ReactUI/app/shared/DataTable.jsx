@@ -37,7 +37,7 @@ export class DataTable extends React.Component {
 
         return(
             
-            <table id="data-table-basic" className="table table-striped dataTable">
+            <table id="" className="table table-striped">
                 <thead>{headerComponents}</thead>
                 <tbody>{rowComponents}</tbody>
             </table>

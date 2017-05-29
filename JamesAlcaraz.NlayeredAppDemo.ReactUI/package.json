@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "npm run build",
-    "build": "webpack --config webpack.config.js --history-api-fallback",
+    "build": "webpack --config webpack.config.js --history-api-fallback --watch",
     "build:prod" : ""
   },
   "-vs-binding": {

@@ -28652,60 +28652,7 @@
 	                    _react2.default.createElement(
 	                        'div',
 	                        { id: 'data-table-basic_wrapper', className: 'dataTables_wrapper' },
-	                        _react2.default.createElement(_DataTable.DataTable, { cols: columns, data: products }),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'dataTables_info', id: 'data-table-basic_info', role: 'status', 'aria-live': 'polite' },
-	                            'Showing 1 to 10 of 57 entries'
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'dataTables_paginate paging_simple_numbers', id: 'data-table-basic_paginate' },
-	                            _react2.default.createElement(
-	                                'a',
-	                                { className: 'paginate_button previous disabled', 'aria-controls': 'data-table-basic', 'data-dt-idx': '0', tabIndex: '0', id: 'data-table-basic_previous' },
-	                                'Previous'
-	                            ),
-	                            _react2.default.createElement(
-	                                'span',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: 'paginate_button current', 'aria-controls': 'data-table-basic', 'data-dt-idx': '1', tabIndex: '0' },
-	                                    '1'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: 'paginate_button ', 'aria-controls': 'data-table-basic', 'data-dt-idx': '2', tabIndex: '0' },
-	                                    '2'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: 'paginate_button ', 'aria-controls': 'data-table-basic', 'data-dt-idx': '3', tabIndex: '0' },
-	                                    '3'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: 'paginate_button ', 'aria-controls': 'data-table-basic', 'data-dt-idx': '4', tabIndex: '0' },
-	                                    '4'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: 'paginate_button ', 'aria-controls': 'data-table-basic', 'data-dt-idx': '5', tabIndex: '0' },
-	                                    '5'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: 'paginate_button ', 'aria-controls': 'data-table-basic', 'data-dt-idx': '6', tabIndex: '0' },
-	                                    '6'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'a',
-	                                { className: 'paginate_button next', 'aria-controls': 'data-table-basic', 'data-dt-idx': '7', tabIndex: '0', id: 'data-table-basic_next' },
-	                                'Next'
-	                            )
-	                        )
+	                        _react2.default.createElement(_DataTable.DataTable, { cols: columns, data: products })
 	                    )
 	                )
 	            );
@@ -28798,7 +28745,7 @@
 
 	            return _react2.default.createElement(
 	                "table",
-	                { id: "data-table-basic", className: "table table-striped dataTable" },
+	                { id: "", className: "table table-striped" },
 	                _react2.default.createElement(
 	                    "thead",
 	                    null,
